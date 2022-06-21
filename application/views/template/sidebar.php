@@ -41,8 +41,8 @@
                         || in_array('MASTER_DATA_SISWA', $this->session->userdata('access'))
                         || in_array('MASTER_DATA_PRESTASI', $this->session->userdata('access'))
                     ) : ?>
-                        <li class="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'kategoriprestasi') echo 'active'; ?>"><a><i class="fa fa-bars"></i> Master Data <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu" style="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'kategoriprestasi') echo 'display: block;'; ?>">
+                        <li class="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'prestasi') echo 'active'; ?>"><a><i class="fa fa-bars"></i> Master Data <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'prestasi') echo 'display: block;'; ?>">
                                 <?php if (in_array('MASTER_DATA_TAHUNAKADEMIK', $this->session->userdata('access'))) : ?>
                                     <li <?php if ($menu_open == 'tahunakademik') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/tahunakademik'); ?>">Tahun Akademik</a></li>
                                 <?php endif; ?>
@@ -59,7 +59,7 @@
                                     <li <?php if ($menu_open == 'siswa') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/siswa'); ?>">Siswa</a></li>
                                 <?php endif; ?>
                                 <?php if (in_array('MASTER_DATA_PRESTASI', $this->session->userdata('access'))) : ?>
-                                    <li <?php if ($menu_open == 'kategoriprestasi') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/kategoriprestasi'); ?>">Kategori Prestasi</a></li>
+                                    <li <?php if ($menu_open == 'prestasi') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/prestasi'); ?>">Kategori Prestasi</a></li>
                                 <?php endif; ?>
                             </ul>
                         </li>

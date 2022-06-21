@@ -3,7 +3,7 @@
 class Mst_prestasi extends CI_Model
 {
 
-    var $table = 'mst_kat_prestasi';
+    var $table = 'mst_prestasi';
 
     function create($data)
     {
@@ -34,8 +34,8 @@ class Mst_prestasi extends CI_Model
 
     function getAllData()
     {
-        $this->db->select('*, a.id_kat_prestasi');
-        $this->db->order_by('a.nama_kategori');
+        $this->db->select('*, a.id_prestasi');
+        $this->db->order_by('a.jenis_prestasi', 'desc');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
@@ -45,8 +45,8 @@ class Mst_prestasi extends CI_Model
 
     function getDataById($id)
     {
-        $this->db->select('*, a.id_kat_prestasi');
-        $this->db->where('a.id_kat_prestasi', $id);
+        $this->db->select('*, a.id_prestasi');
+        $this->db->where('a.id_prestasi', $id);
         $query = $this->db->get($this->table . ' a', 1);
 
         if ($query->num_rows() == 1) {

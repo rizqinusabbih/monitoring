@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2022 at 11:20 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Jun 21, 2022 at 04:04 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,26 +64,6 @@ INSERT INTO `mst_jurusan` (`id_jurusan`, `nama_jurusan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_kat_prestasi`
---
-
-CREATE TABLE `mst_kat_prestasi` (
-  `id_kat_prestasi` int(11) NOT NULL,
-  `nama_kategori` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `mst_kat_prestasi`
---
-
-INSERT INTO `mst_kat_prestasi` (`id_kat_prestasi`, `nama_kategori`) VALUES
-(1, 'Pendidikan'),
-(2, 'Organisasi'),
-(3, 'Olahraga');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `mst_kelas`
 --
 
@@ -130,6 +110,26 @@ INSERT INTO `mst_menu` (`id_menu`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mst_prestasi`
+--
+
+CREATE TABLE `mst_prestasi` (
+  `id_prestasi` int(11) NOT NULL,
+  `jenis_prestasi` varchar(128) NOT NULL,
+  `point` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mst_prestasi`
+--
+
+INSERT INTO `mst_prestasi` (`id_prestasi`, `jenis_prestasi`, `point`) VALUES
+(1, 'Juara Olimpiade', '10'),
+(2, 'Juara Kelas', '8');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mst_siswa`
 --
 
@@ -153,27 +153,6 @@ INSERT INTO `mst_siswa` (`id_siswa`, `id_tahun_akademik`, `nis`, `nama_siswa`, `
 (1, 1, '201001', 'Rizqi', 1, 'aktif', NULL, NULL, NULL),
 (2, 1, '201002', 'Nusabbih', 1, 'aktif', NULL, NULL, NULL),
 (3, 1, '201003', 'Hidayatullah', 1, 'aktif', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mst_subkat_prestasi`
---
-
-CREATE TABLE `mst_subkat_prestasi` (
-  `id_subkat_prestasi` int(11) NOT NULL,
-  `id_kat_prestasi` int(11) NOT NULL,
-  `nama_subkategori` varchar(128) NOT NULL,
-  `poin_prestasi` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `mst_subkat_prestasi`
---
-
-INSERT INTO `mst_subkat_prestasi` (`id_subkat_prestasi`, `id_kat_prestasi`, `nama_subkategori`, `poin_prestasi`) VALUES
-(1, 1, 'Juara Olimpiade', '10'),
-(2, 1, 'Juara Kelas', '9');
 
 -- --------------------------------------------------------
 
@@ -262,12 +241,6 @@ ALTER TABLE `mst_jurusan`
   ADD PRIMARY KEY (`id_jurusan`);
 
 --
--- Indexes for table `mst_kat_prestasi`
---
-ALTER TABLE `mst_kat_prestasi`
-  ADD PRIMARY KEY (`id_kat_prestasi`);
-
---
 -- Indexes for table `mst_kelas`
 --
 ALTER TABLE `mst_kelas`
@@ -280,16 +253,16 @@ ALTER TABLE `mst_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
+-- Indexes for table `mst_prestasi`
+--
+ALTER TABLE `mst_prestasi`
+  ADD PRIMARY KEY (`id_prestasi`);
+
+--
 -- Indexes for table `mst_siswa`
 --
 ALTER TABLE `mst_siswa`
   ADD PRIMARY KEY (`id_siswa`);
-
---
--- Indexes for table `mst_subkat_prestasi`
---
-ALTER TABLE `mst_subkat_prestasi`
-  ADD PRIMARY KEY (`id_subkat_prestasi`);
 
 --
 -- Indexes for table `tahun_akademik`
@@ -326,12 +299,6 @@ ALTER TABLE `mst_jurusan`
   MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `mst_kat_prestasi`
---
-ALTER TABLE `mst_kat_prestasi`
-  MODIFY `id_kat_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `mst_kelas`
 --
 ALTER TABLE `mst_kelas`
@@ -344,16 +311,16 @@ ALTER TABLE `mst_menu`
   MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `mst_prestasi`
+--
+ALTER TABLE `mst_prestasi`
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `mst_siswa`
 --
 ALTER TABLE `mst_siswa`
   MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `mst_subkat_prestasi`
---
-ALTER TABLE `mst_subkat_prestasi`
-  MODIFY `id_subkat_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tahun_akademik`

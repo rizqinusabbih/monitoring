@@ -33,17 +33,22 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="<?php echo base_url('admin/kategoriprestasi/do_add'); ?>" method="post">
+                        <form action="<?php echo base_url('admin/prestasi/do_edit/' . $prestasi['id_prestasi']); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="nama_kategori">Nama Ketegori * :</label>
-                                    <input type="text" name="nama_kategori" id="nama_kategori" class="form-control" value="<?php echo set_value('nama_kategori'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('nama_kategori'); ?></small>
+                                    <label for="jenis_prestasi">Jenis Prestasi * :</label>
+                                    <input type="text" name="jenis_prestasi" id="jenis_prestasi" class="form-control" value="<?php echo $prestasi['jenis_prestasi']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('jenis_prestasi'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="point">Point * :</label>
+                                    <input type="text" name="point" id="point" class="form-control" value="<?php echo $prestasi['point']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('point'); ?></small>
                                 </div>
                                 <br>
                                 <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-                                    <a href="<?php echo base_url('admin/kategoriprestasi'); ?>" class="btn btn-sm btn-dark">Kembali</a>
+                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                    <a href="<?php echo base_url('admin/prestasi'); ?>" class="btn btn-sm btn-dark">Kembali</a>
                                 </div>
                             </div>
                         </form>

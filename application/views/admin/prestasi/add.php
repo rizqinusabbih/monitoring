@@ -33,32 +33,22 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="<?php echo base_url('admin/kategoriprestasi/do_edit_subkat/' . $ketpres['id_subkat_prestasi']); ?>" method="post">
+                        <form action="<?php echo base_url('admin/prestasi/do_add'); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="id_kat_prestasi">Kategori Prestasi * :</label>
-                                    <select name="id_kat_prestasi" id="id_kat_prestasi" class="form-control">
-                                        <option value="">- Pilih Kategori Prestasi -</option>
-                                        <?php foreach ($katpres as $one) : ?>
-                                            <option value="<?php echo $one['id_kat_prestasi']; ?>" <?php echo $one['id_kat_prestasi'] == $ketpres['id_kat_prestasi'] ? 'selected' : ''; ?>><?php echo $one['nama_kategori']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <small class="form-text text-danger"><?php echo form_error('nama_subkategori'); ?></small>
+                                    <label for="jenis_prestasi">Jenis Prestasi * :</label>
+                                    <input type="text" name="jenis_prestasi" id="jenis_prestasi" class="form-control" value="<?php echo set_value('jenis_prestasi'); ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('jenis_prestasi'); ?></small>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="nama_subkategori">Keterangan * :</label>
-                                    <input type="text" name="nama_subkategori" id="nama_subkategori" class="form-control" value="<?php echo $ketpres['nama_subkategori']; ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('nama_subkategori'); ?></small>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="poin_prestasi">Point * :</label>
-                                    <input type="number" name="poin_prestasi" id="poin_prestasi" class="form-control" value="<?php echo $ketpres['poin_prestasi']; ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('poin_prestasi'); ?></small>
+                                    <label for="point">Point * :</label>
+                                    <input type="text" name="point" id="point" class="form-control" value="<?php echo set_value('point'); ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('point'); ?></small>
                                 </div>
                                 <br>
                                 <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                                    <a href="<?php echo base_url('admin/kategoriprestasi'); ?>" class="btn btn-sm btn-dark">Kembali</a>
+                                    <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
+                                    <a href="<?php echo base_url('admin/prestasi'); ?>" class="btn btn-sm btn-dark">Kembali</a>
                                 </div>
                             </div>
                         </form>
