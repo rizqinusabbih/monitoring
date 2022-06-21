@@ -40,6 +40,11 @@
                                     <input type="text" name="tahun_akademik" id="tahun_akademik" class="form-control" value="<?php echo $tahunakademik['tahun_akademik']; ?>" required />
                                     <small class="form-text text-danger"><?php echo form_error('tahun_akademik'); ?></small>
                                 </div>
+                                <div class="form-group col-md-12">
+                                    <label for="angkatan">Tahun Angkatan * :</label>
+                                    <input type="text" name="angkatan" id="angkatan" class="form-control" placeholder="2022" value="<?php echo $tahunakademik['angkatan']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('angkatan'); ?></small>
+                                </div>
                                 <br>
                                 <div class="form-group col-md-12">
                                     <button type="submit" class="btn btn-sm btn-primary">Update</button>

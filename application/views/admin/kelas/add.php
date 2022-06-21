@@ -33,22 +33,37 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="<?php echo base_url('admin/tahunakademik/do_add'); ?>" method="post">
+                        <form action="<?php echo base_url('admin/kelas/do_add'); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="tahun_akademik">Tahun Akademik * :</label>
-                                    <input type="text" name="tahun_akademik" id="tahun_akademik" class="form-control" placeholder="2022/2023" value="<?php echo set_value('tahun_akademik'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('tahun_akademik'); ?></small>
+                                    <label for="nama_kelas">Nama Kelas * :</label>
+                                    <input type="text" name="nama_kelas" id="nama_kelas" class="form-control" value="<?php echo set_value('nama_kelas'); ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('nama_kelas'); ?></small>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="angkatan">Tahun Angkatan * :</label>
-                                    <input type="text" name="angkatan" id="angkatan" class="form-control" placeholder="2022" value="<?php echo set_value('angkatan'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('angkatan'); ?></small>
+                                    <label for="id_jurusan">Jurusan * :</label>
+                                    <select name="id_jurusan" id="id_jurusan" class="form-control">
+                                        <option value="">- Pilih Jurusan -</option>
+                                        <?php foreach ($jurusan as $one) : ?>
+                                            <option value="<?php echo $one['id_jurusan']; ?>"><?php echo $one['nama_jurusan']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <small class="form-text text-danger"><?php echo form_error('id_jurusan'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="id_guru">Wali Kelas * :</label>
+                                    <select name="id_guru" id="id_guru" class="form-control">
+                                        <option value="">- Pilih Wali Kelas -</option>
+                                        <?php foreach ($guru as $two) : ?>
+                                            <option value="<?php echo $two['id_guru']; ?>"><?php echo $two['nama_guru']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <small class="form-text text-danger"><?php echo form_error('id_guru'); ?></small>
                                 </div>
                                 <br>
                                 <div class="form-group col-md-12">
                                     <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-                                    <a href="<?php echo base_url('admin/tahunakademik'); ?>" class="btn btn-sm btn-dark">Kembali</a>
+                                    <a href="<?php echo base_url('admin/kelas'); ?>" class="btn btn-sm btn-dark">Kembali</a>
                                 </div>
                             </div>
                         </form>

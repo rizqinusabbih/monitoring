@@ -33,22 +33,17 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="<?php echo base_url('admin/tahunakademik/do_add'); ?>" method="post">
+                        <form action="<?php echo base_url('admin/jurusan/do_edit/' . $jurusan['id_jurusan']); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="tahun_akademik">Tahun Akademik * :</label>
-                                    <input type="text" name="tahun_akademik" id="tahun_akademik" class="form-control" placeholder="2022/2023" value="<?php echo set_value('tahun_akademik'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('tahun_akademik'); ?></small>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="angkatan">Tahun Angkatan * :</label>
-                                    <input type="text" name="angkatan" id="angkatan" class="form-control" placeholder="2022" value="<?php echo set_value('angkatan'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('angkatan'); ?></small>
+                                    <label for="nama_jurusan">Nama Jurusan * :</label>
+                                    <input type="text" name="nama_jurusan" id="nama_jurusan" class="form-control" value="<?php echo $jurusan['nama_jurusan']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('nama_jurusan'); ?></small>
                                 </div>
                                 <br>
                                 <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-                                    <a href="<?php echo base_url('admin/tahunakademik'); ?>" class="btn btn-sm btn-dark">Kembali</a>
+                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                    <a href="<?php echo base_url('admin/jurusan'); ?>" class="btn btn-sm btn-dark">Kembali</a>
                                 </div>
                             </div>
                         </form>

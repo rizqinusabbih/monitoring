@@ -33,22 +33,32 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="<?php echo base_url('admin/tahunakademik/do_add'); ?>" method="post">
+                        <form action="<?php echo base_url('admin/kategoriprestasi/do_edit_subkat/' . $ketpres['id_subkat_prestasi']); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="tahun_akademik">Tahun Akademik * :</label>
-                                    <input type="text" name="tahun_akademik" id="tahun_akademik" class="form-control" placeholder="2022/2023" value="<?php echo set_value('tahun_akademik'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('tahun_akademik'); ?></small>
+                                    <label for="id_kat_prestasi">Kategori Prestasi * :</label>
+                                    <select name="id_kat_prestasi" id="id_kat_prestasi" class="form-control">
+                                        <option value="">- Pilih Kategori Prestasi -</option>
+                                        <?php foreach ($katpres as $one) : ?>
+                                            <option value="<?php echo $one['id_kat_prestasi']; ?>" <?php echo $one['id_kat_prestasi'] == $ketpres['id_kat_prestasi'] ? 'selected' : ''; ?>><?php echo $one['nama_kategori']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <small class="form-text text-danger"><?php echo form_error('nama_subkategori'); ?></small>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="angkatan">Tahun Angkatan * :</label>
-                                    <input type="text" name="angkatan" id="angkatan" class="form-control" placeholder="2022" value="<?php echo set_value('angkatan'); ?>" required />
-                                    <small class="form-text text-danger"><?php echo form_error('angkatan'); ?></small>
+                                    <label for="nama_subkategori">Keterangan * :</label>
+                                    <input type="text" name="nama_subkategori" id="nama_subkategori" class="form-control" value="<?php echo $ketpres['nama_subkategori']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('nama_subkategori'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="poin_prestasi">Point * :</label>
+                                    <input type="number" name="poin_prestasi" id="poin_prestasi" class="form-control" value="<?php echo $ketpres['poin_prestasi']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('poin_prestasi'); ?></small>
                                 </div>
                                 <br>
                                 <div class="form-group col-md-12">
-                                    <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-                                    <a href="<?php echo base_url('admin/tahunakademik'); ?>" class="btn btn-sm btn-dark">Kembali</a>
+                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                    <a href="<?php echo base_url('admin/kategoriprestasi'); ?>" class="btn btn-sm btn-dark">Kembali</a>
                                 </div>
                             </div>
                         </form>

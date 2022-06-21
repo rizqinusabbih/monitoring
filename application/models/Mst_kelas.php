@@ -1,9 +1,9 @@
 <?php
 
-class Tahun_akademik extends CI_Model
+class Mst_kelas extends CI_Model
 {
 
-    var $table = 'tahun_akademik';
+    var $table = 'mst_kelas';
 
     function create($data)
     {
@@ -34,8 +34,10 @@ class Tahun_akademik extends CI_Model
 
     function getAllData()
     {
-        $this->db->select('*, a.id_tahun_akademik');
-        $this->db->order_by('a.id_tahun_akademik', 'desc');
+        $this->db->select('*, a.id_kelas');
+        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
+        $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
+        $this->db->order_by('a.nama_kelas');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
@@ -45,8 +47,10 @@ class Tahun_akademik extends CI_Model
 
     function getDataById($id)
     {
-        $this->db->select('*, a.id_tahun_akademik');
-        $this->db->where('a.id_tahun_akademik', $id);
+        $this->db->select('*, a.id_kelas');
+        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
+        $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
+        $this->db->where('a.id_kelas', $id);
         $query = $this->db->get($this->table . ' a', 1);
 
         if ($query->num_rows() == 1) {
@@ -64,10 +68,12 @@ class Tahun_akademik extends CI_Model
         }
     }
 
-    function getTahunaktif()
+    function getSudahada($kelas, $jurusan)
     {
-        $this->db->select('*, a.id_tahun_akademik');
-        $this->db->where('a.is_aktif', 'aktif');
+        $this->db->select('*, a.id_kelas');
+        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
+        $this->db->where('a.nama_kelas', $kelas);
+        $this->db->where('a.id_jurusan', $jurusan);
         $query = $this->db->get($this->table . ' a', 1);
 
         if ($query->num_rows() == 1) {

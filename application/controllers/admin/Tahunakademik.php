@@ -43,6 +43,9 @@ class Tahunakademik extends CI_Controller
         $this->form_validation->set_rules('tahun_akademik', 'Alias', 'required', [
             'required' => 'Tahun akademik harus diisi'
         ]);
+        $this->form_validation->set_rules('angkatan', 'Alias', 'required', [
+            'required' => 'Tahun angkatan harus diisi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->tambah();
@@ -50,6 +53,7 @@ class Tahunakademik extends CI_Controller
             // Tampung data
             $data = [
                 'tahun_akademik'    => $this->input->post('tahun_akademik'),
+                'angkatan'    => $this->input->post('angkatan'),
                 'is_aktif'             => 'aktif'
             ];
 
@@ -83,13 +87,17 @@ class Tahunakademik extends CI_Controller
         $this->form_validation->set_rules('tahun_akademik', 'Alias', 'required', [
             'required' => 'Tahun akademik harus diisi'
         ]);
+        $this->form_validation->set_rules('angkatan', 'Alias', 'required', [
+            'required' => 'Tahun angkatan harus diisi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->edit();
         } else {
             // Tampung data
             $data = [
-                'tahun_akademik'    => $this->input->post('tahun_akademik')
+                'tahun_akademik'    => $this->input->post('tahun_akademik'),
+                'angkatan'    => $this->input->post('angkatan'),
             ];
 
             // Update data

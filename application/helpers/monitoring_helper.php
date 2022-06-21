@@ -49,3 +49,17 @@ function check_access($level, $menu)
         return "checked='checked'";
     }
 }
+
+// level user
+function level($level = 0)
+{
+    $level_arr = [
+        '1' => 'Kepala Sekolah',
+        '2' => 'Wali Kelas',
+    ];
+
+    if ($level !== 0) {
+        return $level_arr[$level];
+    }
+    return $level_arr;
+}
