@@ -70,4 +70,20 @@ class Mst_siswa extends CI_Model
             return $query->row_array();
         }
     }
+
+    function getAllByIdKelas($id_kelas)
+    {
+        $this->db->select('*, a.id_siswa');
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik', 'left');
+        $this->db->join('mst_kelas', 'a.id_kelas = mst_kelas.id_kelas', 'left');
+        $this->db->join('mst_jurusan', 'mst_kelas.id_jurusan = mst_jurusan.id_jurusan', 'left');
+        $this->db->where('a.id_kelas', $id_kelas);
+        $this->db->order_by('a.id_tahun_akademik', 'desc');
+        $this->db->order_by('a.nis');
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
 }

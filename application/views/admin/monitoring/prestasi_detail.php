@@ -9,8 +9,6 @@
 
         <div class="clearfix"></div>
 
-        <a href="<?php echo base_url('admin/prestasi/tambah'); ?>" class="btn bg-primary btn-sm pull-right"><i class="fa fa-plus"></i> Tambah Jenis Prestasi</a>
-
         <div class="row">
             <!-- Alert -->
             <div class="col-md-12">
@@ -25,6 +23,7 @@
                     </div>
                 <?php endif; ?>
             </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -42,9 +41,8 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Jenis Prestasi</th>
-                                    <th>Poin</th>
-                                    <th>Action</th>
+                                    <th>Tanggal</th>
+                                    <th>Prestasi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,12 +51,8 @@
                                     <?php foreach ($prestasi as $row) : ?>
                                         <tr>
                                             <td width="20"><?php echo $no++; ?></td>
-                                            <td><?php echo $row['jenis_prestasi']; ?></td>
-                                            <td><?php echo $row['point']; ?></td>
-                                            <td>
-                                                <a href="<?php echo base_url('admin/prestasi/edit/' . $row['id_prestasi']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="<?php echo base_url('admin/prestasi/delete/' . $row['id_prestasi']); ?>" class="btn btn-sm btn-danger" data-placement="top" title="Hapus" onclick="return confirm('Apakah Anda benar-benar ingin menghapus jenis prestasi ini?');"><i class="fa fa-trash"></i></a>
-                                            </td>
+                                            <td><?php echo $row['tgl_prestasi']; ?></td>
+                                            <td><?php echo $row['keterangan'] ? $row['keterangan'] : $row['jenis_prestasi']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>

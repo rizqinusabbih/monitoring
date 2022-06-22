@@ -9,7 +9,7 @@
 
         <div class="clearfix"></div>
 
-        <a href="<?php echo base_url('admin/prestasi/tambah'); ?>" class="btn bg-primary btn-sm pull-right"><i class="fa fa-plus"></i> Tambah Jenis Prestasi</a>
+        <a href="<?php echo base_url('admin/pelanggaran/tambah'); ?>" class="btn bg-primary btn-sm pull-right"><i class="fa fa-plus"></i> Tambah Jenis Pelanggaran</a>
 
         <div class="row">
             <!-- Alert -->
@@ -42,22 +42,22 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Jenis Prestasi</th>
+                                    <th>Jenis Pelanggaran</th>
                                     <th>Poin</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <?php if ($prestasi) : ?>
-                                    <?php foreach ($prestasi as $row) : ?>
+                                <?php if ($pelanggaran) : ?>
+                                    <?php foreach ($pelanggaran as $row) : ?>
                                         <tr>
                                             <td width="20"><?php echo $no++; ?></td>
-                                            <td><?php echo $row['jenis_prestasi']; ?></td>
-                                            <td><?php echo $row['point']; ?></td>
+                                            <td><?php echo $row['jenis_pelanggaran']; ?></td>
+                                            <td><?php echo $row['poin']; ?></td>
                                             <td>
-                                                <a href="<?php echo base_url('admin/prestasi/edit/' . $row['id_prestasi']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
-                                                <a href="<?php echo base_url('admin/prestasi/delete/' . $row['id_prestasi']); ?>" class="btn btn-sm btn-danger" data-placement="top" title="Hapus" onclick="return confirm('Apakah Anda benar-benar ingin menghapus jenis prestasi ini?');"><i class="fa fa-trash"></i></a>
+                                                <a href="<?php echo base_url('admin/pelanggaran/edit/' . $row['id_pelanggaran']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a href="<?php echo base_url('admin/pelanggaran/delete/' . $row['id_pelanggaran']); ?>" class="btn btn-sm btn-danger" data-placement="top" title="Hapus" onclick="return confirm('Apakah Anda benar-benar ingin menghapus jenis pelanggaran ini?');"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

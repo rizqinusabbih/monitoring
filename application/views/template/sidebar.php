@@ -23,7 +23,9 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>General</h3>
+                <?php if ($this->session->userdata('level') == 0) : ?>
+                    <h3>General</h3>
+                <?php endif; ?>
                 <ul class="nav side-menu">
                     <?php if (in_array('ADMIN_DASHBOARD', $this->session->userdata('access'))) : ?>
                         <li class="<?php if (strpos(current_url(), 'dashboard') !== false) echo 'active'; ?>"><a href="<?php echo base_url('admin/dashboard'); ?>"><i class="fa fa-tachometer"></i> Dashboard</a></li>
@@ -40,9 +42,10 @@
                         || in_array('MASTER_DATA_GURU', $this->session->userdata('access'))
                         || in_array('MASTER_DATA_SISWA', $this->session->userdata('access'))
                         || in_array('MASTER_DATA_PRESTASI', $this->session->userdata('access'))
+                        || in_array('MASTER_DATA_PELANGGARAN', $this->session->userdata('access'))
                     ) : ?>
-                        <li class="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'prestasi') echo 'active'; ?>"><a><i class="fa fa-bars"></i> Master Data <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu" style="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'prestasi') echo 'display: block;'; ?>">
+                        <li class="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'prestasi' or $menu_open == 'pelanggaran') echo 'active'; ?>"><a><i class="fa fa-bars"></i> Master Data <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="<?php if ($menu_open == 'tahunakademik' or $menu_open == 'guru' or $menu_open == 'jurusan' or $menu_open == 'kelas' or $menu_open == 'siswa' or $menu_open == 'prestasi' or $menu_open == 'pelanggaran') echo 'display: block;'; ?>">
                                 <?php if (in_array('MASTER_DATA_TAHUNAKADEMIK', $this->session->userdata('access'))) : ?>
                                     <li <?php if ($menu_open == 'tahunakademik') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/tahunakademik'); ?>">Tahun Akademik</a></li>
                                 <?php endif; ?>
@@ -60,6 +63,30 @@
                                 <?php endif; ?>
                                 <?php if (in_array('MASTER_DATA_PRESTASI', $this->session->userdata('access'))) : ?>
                                     <li <?php if ($menu_open == 'prestasi') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/prestasi'); ?>">Kategori Prestasi</a></li>
+                                <?php endif; ?>
+                                <?php if (in_array('MASTER_DATA_PELANGGARAN', $this->session->userdata('access'))) : ?>
+                                    <li <?php if ($menu_open == 'pelanggaran') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/pelanggaran'); ?>">Kategori Pelanggaran</a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+
+                <!-- Wali Kelas -->
+                <h3>Wali Kelas</h3>
+                <ul class="nav side-menu">
+
+                    <?php if (
+                        in_array('MONITORING_PRESTASI', $this->session->userdata('access'))
+                        || in_array('MONITORING_PELANGGARAN', $this->session->userdata('access'))
+                    ) : ?>
+                        <li class="<?php if ($menu_open == 'mprestasi' or $menu_open == 'mpelanggaran') echo 'active'; ?>"><a><i class="fa fa-pencil-square-o"></i> Monitoring <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="<?php if ($menu_open == 'mprestasi' or $menu_open == 'mpelanggaran') echo 'display: block;'; ?>">
+                                <?php if (in_array('MONITORING_PRESTASI', $this->session->userdata('access'))) : ?>
+                                    <li <?php if ($menu_open == 'mprestasi') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/mprestasi'); ?>">Prestasi Siswa</a></li>
+                                <?php endif; ?>
+                                <?php if (in_array('MONITORING_PELANGGARAN', $this->session->userdata('access'))) : ?>
+                                    <li <?php if ($menu_open == 'mpelanggaran') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/mpelanggaran'); ?>">Pelanggaran Siswa</a></li>
                                 <?php endif; ?>
                             </ul>
                         </li>

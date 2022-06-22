@@ -97,6 +97,12 @@
              }
          });
      });
+     $('#id_prestasi').change(function() {
+         pointPrestasi();
+     });
+     $('#id_pelanggaran').change(function() {
+         poinPelanggaran();
+     });
 
      function alertTimeout(mymsg, mymsecs) {
          var myelement = document.createElement("div");
@@ -106,6 +112,50 @@
              myelement.parentNode.removeChild(myelement);
          }, mymsecs);
          document.body.appendChild(myelement);
+     }
+
+     //  point prestasi
+     function pointPrestasi() {
+         var prestasi = $('#id_prestasi').val();
+         if (prestasi) {
+             $.ajax({
+                 type: "GET",
+                 url: "<?php echo base_url(); ?>admin/mprestasi/updateFormData",
+                 data: {
+                     dataprestasi: prestasi
+                 },
+                 success: function(response) {
+                     var result = JSON.parse(response);
+                     console.log(result);
+                     $("#jml_point").val(result.jml_point);
+                 },
+                 error: function() {
+                     console.log('update form err');
+                 }
+             });
+         }
+     }
+
+     //  poin pelanggaran
+     function poinPelanggaran() {
+         var pelanggaran = $('#id_pelanggaran').val();
+         if (pelanggaran) {
+             $.ajax({
+                 type: "GET",
+                 url: "<?php echo base_url(); ?>admin/mpelanggaran/updateFormData",
+                 data: {
+                     datapelanggaran: pelanggaran
+                 },
+                 success: function(response) {
+                     var result = JSON.parse(response);
+                     console.log(result);
+                     $("#jml_poin").val(result.jml_poin);
+                 },
+                 error: function() {
+                     console.log('update form err');
+                 }
+             });
+         }
      }
  </script>
 

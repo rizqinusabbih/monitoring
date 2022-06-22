@@ -1,9 +1,9 @@
 <?php
 
-class Mst_guru extends CI_Model
+class Mst_pelanggaran extends CI_Model
 {
 
-    var $table = 'mst_guru';
+    var $table = 'mst_pelanggaran';
 
     function create($data)
     {
@@ -34,11 +34,9 @@ class Mst_guru extends CI_Model
 
     function getAllData()
     {
-        $this->db->select('*, a.id_guru');
-        $this->db->join('user', 'a.id_guru = user.id_guru', 'left');
-        $this->db->join('mst_kelas', 'a.id_guru = mst_kelas.id_guru', 'left');
-        $this->db->join('mst_jurusan', 'mst_kelas.id_jurusan = mst_jurusan.id_jurusan', 'left');
-        $this->db->order_by('a.nama_guru');
+        $this->db->select('*, a.id_pelanggaran');
+        $this->db->order_by('a.poin');
+        $this->db->order_by('a.jenis_pelanggaran');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
@@ -48,9 +46,8 @@ class Mst_guru extends CI_Model
 
     function getDataById($id)
     {
-        $this->db->select('*, a.id_guru');
-        $this->db->join('user', 'a.id_guru = user.id_guru', 'left');
-        $this->db->where('a.id_guru', $id);
+        $this->db->select('*, a.id_pelanggaran');
+        $this->db->where('a.id_pelanggaran', $id);
         $query = $this->db->get($this->table . ' a', 1);
 
         if ($query->num_rows() == 1) {

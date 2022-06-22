@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2022 at 04:04 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Jun 22, 2022 at 11:27 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,56 @@ SET time_zone = "+00:00";
 --
 -- Database: `monitoring`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mon_pelanggaran`
+--
+
+CREATE TABLE `mon_pelanggaran` (
+  `id_mon_pelanggaran` int(11) NOT NULL,
+  `id_tahun_akademik` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `id_pelanggaran` int(11) NOT NULL,
+  `jml_poin` int(11) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `tgl_pelanggaran` date NOT NULL,
+  `id_guru` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mon_pelanggaran`
+--
+
+INSERT INTO `mon_pelanggaran` (`id_mon_pelanggaran`, `id_tahun_akademik`, `id_siswa`, `id_pelanggaran`, `jml_poin`, `keterangan`, `tgl_pelanggaran`, `id_guru`) VALUES
+(1, 1, 2, 1, 5, NULL, '2022-06-22', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mon_prestasi`
+--
+
+CREATE TABLE `mon_prestasi` (
+  `id_mon_prestasi` int(11) NOT NULL,
+  `id_tahun_akademik` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `id_prestasi` int(11) NOT NULL,
+  `jml_point` int(11) DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `tgl_prestasi` date NOT NULL,
+  `id_guru` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mon_prestasi`
+--
+
+INSERT INTO `mon_prestasi` (`id_mon_prestasi`, `id_tahun_akademik`, `id_siswa`, `id_prestasi`, `jml_point`, `keterangan`, `tgl_prestasi`, `id_guru`) VALUES
+(1, 1, 1, 1, 10, 'OSN TIK Kabupaten', '2022-06-22', 2),
+(2, 1, 1, 2, 8, 'Juara I Kelas X IPA', '2022-06-22', 2),
+(3, 1, 1, 1, 10, 'OSN TIK Provinsi', '2022-06-22', 2);
 
 -- --------------------------------------------------------
 
@@ -79,8 +129,8 @@ CREATE TABLE `mst_kelas` (
 --
 
 INSERT INTO `mst_kelas` (`id_kelas`, `nama_kelas`, `id_jurusan`, `id_guru`) VALUES
-(1, 'X', 1, NULL),
-(2, 'X', 2, NULL);
+(1, 'X', 1, 2),
+(2, 'X', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -105,7 +155,69 @@ INSERT INTO `mst_menu` (`id_menu`, `menu`) VALUES
 (5, 'MASTER_DATA_KELAS'),
 (6, 'MASTER_DATA_GURU'),
 (7, 'MASTER_DATA_SISWA'),
-(8, 'MASTER_DATA_PRESTASI');
+(8, 'MASTER_DATA_PRESTASI'),
+(9, 'MASTER_DATA_PELANGGARAN'),
+(10, 'MONITORING_PRESTASI'),
+(11, 'MONITORING_PELANGGARAN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mst_pelanggaran`
+--
+
+CREATE TABLE `mst_pelanggaran` (
+  `id_pelanggaran` int(11) NOT NULL,
+  `jenis_pelanggaran` varchar(128) NOT NULL,
+  `poin` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mst_pelanggaran`
+--
+
+INSERT INTO `mst_pelanggaran` (`id_pelanggaran`, `jenis_pelanggaran`, `poin`) VALUES
+(1, 'Datang terlambat masuk ke sekolah', 5),
+(2, 'Keluar tanpa izin', 5),
+(3, 'Tidak melaksanakan tugas piket kelas', 5),
+(4, 'Berpakaian seragam tidak lengkap', 5),
+(5, 'Makan di kelas waktu pelajaran sedang berjalan', 10),
+(6, 'Membuang sampah tidak pada tempatnya', 5),
+(7, 'Bermain di tempat parkir', 5),
+(8, 'Memakai gelang, kalung, anting-anting bagi laki-laki dan berhias berlebihan bagi perempuan', 10),
+(9, 'Tidak memperhatikan panggilan guru dan pegawai', 10),
+(10, 'Berada di lantai pada waktu pergantian pelajaran', 10),
+(11, 'Berpakaian tidak rapi', 5),
+(12, 'Siswa tidak masuk tanpa keterangan', 5),
+(13, 'Membuat izin palsu', 10),
+(14, 'Membolos/keluar/meninggalkan kelas', 15),
+(15, 'Membawa buku, majalah, kaset terlarang/gambar porno/HP bergambar porno', 20),
+(16, 'Melindungi teman yang salah/provokator', 20),
+(17, 'Melompat pagar/tidak mengikuti upacara', 20),
+(18, 'Mengganggu/mengacau kelas lain', 10),
+(19, 'Bersikap tidak sopan/menentang guru/pegawai', 50),
+(20, 'Mencoret-coret tembok, pintu, meja, kursi, dan memecahkan kaca yang tidak semestinya', 10),
+(21, 'Melakukan tindakan amoral', 50),
+(22, 'Melakukan tindakan pemerasan dan pemalakan terhadap teman dan orang lain', 50),
+(23, 'Membawa dan merokok pada lingkungan sekolah', 20),
+(24, 'Berbahasa yang kotor/kasar kepada teman/orang lain', 20),
+(25, 'Menyampaikan berita yang tidak benar (memprovokasi) orang tua, wali, masyarakat sehingga melakukan tindakan anarkis atau campur ', 75),
+(26, 'Rambut gondrong, mengecat rambut dan tidak  rapi', 25),
+(27, 'Membuat tato pada anggota badan', 25),
+(28, 'Memalsukan tanda tangan wali kelas, guru dan kepala sekolah', 80),
+(29, 'Membawa/minum minuman keras', 80),
+(30, 'Berkelahi atau main hakim sendiri', 50),
+(31, 'Merusak sarana/prasarana sekolah', 50),
+(32, 'Mengambil milik orang lain (mencuri)', 75),
+(33, 'Membawa/menyebarkan selebaran yang menimbulkan keresahan', 75),
+(34, 'Berurusan dengan pihak yang berwajib karena melakukan kejahatan', 80),
+(35, 'Membawa senjata tajam tanpa sepengetahuan sekolah', 50),
+(36, 'Merubah atau memalsukan raport', 80),
+(37, 'Mengikuti organisasi terlarang', 80),
+(38, 'Teribat dalam menyalahgunakan narkoba/zat aditif lainnya', 85),
+(39, 'Melakukan tindakan seksual di luar nikah', 100),
+(40, 'Memprovokasi orang tua/masyarakat yang dapat merongrong kewibawaan sekolah', 80),
+(41, 'Berjudi di sekolah', 50);
 
 -- --------------------------------------------------------
 
@@ -116,7 +228,7 @@ INSERT INTO `mst_menu` (`id_menu`, `menu`) VALUES
 CREATE TABLE `mst_prestasi` (
   `id_prestasi` int(11) NOT NULL,
   `jenis_prestasi` varchar(128) NOT NULL,
-  `point` varchar(3) NOT NULL
+  `point` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,8 +236,8 @@ CREATE TABLE `mst_prestasi` (
 --
 
 INSERT INTO `mst_prestasi` (`id_prestasi`, `jenis_prestasi`, `point`) VALUES
-(1, 'Juara Olimpiade', '10'),
-(2, 'Juara Kelas', '8');
+(1, 'Juara Olimpiade', 10),
+(2, 'Juara Kelas', 8);
 
 -- --------------------------------------------------------
 
@@ -222,11 +334,28 @@ INSERT INTO `user_access` (`id`, `level`, `id_menu`) VALUES
 (5, 0, 5),
 (6, 0, 6),
 (7, 0, 7),
-(8, 0, 8);
+(8, 0, 8),
+(9, 0, 9),
+(10, 0, 10),
+(11, 0, 11),
+(12, 2, 10),
+(13, 2, 11);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `mon_pelanggaran`
+--
+ALTER TABLE `mon_pelanggaran`
+  ADD PRIMARY KEY (`id_mon_pelanggaran`);
+
+--
+-- Indexes for table `mon_prestasi`
+--
+ALTER TABLE `mon_prestasi`
+  ADD PRIMARY KEY (`id_mon_prestasi`);
 
 --
 -- Indexes for table `mst_guru`
@@ -251,6 +380,12 @@ ALTER TABLE `mst_kelas`
 --
 ALTER TABLE `mst_menu`
   ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indexes for table `mst_pelanggaran`
+--
+ALTER TABLE `mst_pelanggaran`
+  ADD PRIMARY KEY (`id_pelanggaran`);
 
 --
 -- Indexes for table `mst_prestasi`
@@ -287,6 +422,18 @@ ALTER TABLE `user_access`
 --
 
 --
+-- AUTO_INCREMENT for table `mon_pelanggaran`
+--
+ALTER TABLE `mon_pelanggaran`
+  MODIFY `id_mon_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `mon_prestasi`
+--
+ALTER TABLE `mon_prestasi`
+  MODIFY `id_mon_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `mst_guru`
 --
 ALTER TABLE `mst_guru`
@@ -308,7 +455,13 @@ ALTER TABLE `mst_kelas`
 -- AUTO_INCREMENT for table `mst_menu`
 --
 ALTER TABLE `mst_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `mst_pelanggaran`
+--
+ALTER TABLE `mst_pelanggaran`
+  MODIFY `id_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `mst_prestasi`
@@ -338,7 +491,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access`
 --
 ALTER TABLE `user_access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

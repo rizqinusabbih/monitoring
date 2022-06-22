@@ -8,6 +8,7 @@ class User_model extends CI_Model
     public function getUser($username)
     {
         $this->db->select('*, a.id_user');
+        $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
         $this->db->where('username', $username);
         $query = $this->db->get($this->table . ' a', 1);
 

@@ -1,9 +1,9 @@
 <?php
 
-class Mst_kelas extends CI_Model
+class Mon_pelanggaran extends CI_Model
 {
 
-    var $table = 'mst_kelas';
+    var $table = 'mon_pelanggaran';
 
     function create($data)
     {
@@ -34,10 +34,8 @@ class Mst_kelas extends CI_Model
 
     function getAllData()
     {
-        $this->db->select('*, a.id_kelas');
-        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
-        $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
-        $this->db->order_by('a.nama_kelas');
+        $this->db->select('*, a.id_mon_pelanggaran');
+        $this->db->order_by('a.id_pelanggaran', 'desc');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
@@ -47,10 +45,8 @@ class Mst_kelas extends CI_Model
 
     function getDataById($id)
     {
-        $this->db->select('*, a.id_kelas');
-        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
-        $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
-        $this->db->where('a.id_kelas', $id);
+        $this->db->select('*, a.id_mon_pelanggaran');
+        $this->db->where('a.id_mon_pelanggaran', $id);
         $query = $this->db->get($this->table . ' a', 1);
 
         if ($query->num_rows() == 1) {
@@ -68,12 +64,11 @@ class Mst_kelas extends CI_Model
         }
     }
 
-    function getSudahada($kelas, $jurusan)
+    function getDataByIdSiswa($id_siswa)
     {
-        $this->db->select('*, a.id_kelas');
-        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
-        $this->db->where('a.nama_kelas', $kelas);
-        $this->db->where('a.id_jurusan', $jurusan);
+        $this->db->select("COUNT(a.id_pelanggaran) as total_pelanggaran");
+        $this->db->select("SUM(a.jml_poin) as total_poin");
+        $this->db->where('a.id_siswa', $id_siswa);
         $query = $this->db->get($this->table . ' a', 1);
 
         if ($query->num_rows() == 1) {
@@ -81,16 +76,17 @@ class Mst_kelas extends CI_Model
         }
     }
 
-    function getDataByIdWali($id_wali_kelas)
+    function getAllByIdSiswa($id_siswa)
     {
-        $this->db->select('*, a.id_kelas');
-        $this->db->join('mst_jurusan', 'a.id_jurusan = mst_jurusan.id_jurusan', 'left');
-        $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
-        $this->db->where('a.id_guru', $id_wali_kelas);
-        $query = $this->db->get($this->table . ' a', 1);
+        $this->db->select('*, a.id_mon_pelanggaran');
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik');
+        $this->db->join('mst_siswa', 'a.id_siswa = mst_siswa.id_siswa');
+        $this->db->join('mst_pelanggaran', 'a.id_pelanggaran = mst_pelanggaran.id_pelanggaran');
+        $this->db->where('a.id_siswa', $id_siswa);
+        $query = $this->db->get($this->table . ' a');
 
-        if ($query->num_rows() == 1) {
-            return $query->row_array();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
         }
     }
 }

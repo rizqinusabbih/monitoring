@@ -55,7 +55,7 @@
                                     <select name="id_guru" id="id_guru" class="form-control">
                                         <option value="">- Pilih Wali Kelas -</option>
                                         <?php foreach ($guru as $two) : ?>
-                                            <option value="<?php echo $two['id_guru']; ?>" <?php echo $two['id_guru'] == $kelas['id_guru'] ? 'selected' : ''; ?>><?php echo $two['nama_guru']; ?></option>
+                                            <option value="<?php echo $two['id_guru']; ?>" <?php echo $two['id_guru'] == $kelas['id_guru'] ? 'selected' : ''; ?>><?php echo $two['nama_kelas'] ? $two['nama_guru'] . ' - Wali Kelas ' . $two['nama_kelas'] . ' ' . $two['nama_jurusan'] : $two['nama_guru']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="form-text text-danger"><?php echo form_error('id_guru'); ?></small>
