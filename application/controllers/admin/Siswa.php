@@ -131,4 +131,53 @@ class Siswa extends CI_Controller
             redirect('admin/siswa');
         }
     }
+
+    public function pindah_keluar()
+    {
+        $data['title']      = title();
+        $data['menu_open']  = 'pindah_keluar'; // samakan dengan nama controller membuat menu open
+        $data['page']       = 'Siswa Pindah / Keluar';
+
+        // Ambil data yang diperlukan
+        $id_wali_kelas = $this->session->userdata('id_guru');
+        $kelas = $this->mst_kelas->getDataByIdWali($id_wali_kelas);
+        $data['siswa'] = $this->mst_siswa->getAllByIdKelas($kelas['id_kelas']);
+
+        // View website
+        $data['content']    = 'admin/siswa/pindah_keluar';
+        $this->load->view('template/template', $data);
+    }
+
+    public function do_out()
+    {
+        $this->form_validation->set_rules('id_siswa', 'Alias', 'required', [
+            'required' => 'Siswa harus diisi'
+        ]);
+        $this->form_validation->set_rules('status', 'Alias', 'required', [
+            'required' => 'Status harus diisi'
+        ]);
+        $this->form_validation->set_rules('keterangan_keluar', 'Alias', 'required', [
+            'required' => 'Keterangan harus diisi'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->pindah_keluar();
+        } else {
+            $id_siswa = $this->input->post('id_siswa');
+            $siswa = $this->mst_siswa->getDataById($id_siswa);
+            // Tampung data
+            $data = [
+                'id_kelas'            => null,
+                'status'              => $this->input->post('status'),
+                'tahun_lulus_keluar'  => date('Y'),
+                'keterangan_keluar'   => $this->input->post('keterangan_keluar'),
+            ];
+
+            // Update data
+            $where = array('id_siswa' => $id_siswa);
+            $this->mst_siswa->update($data, $where);
+            $this->session->set_flashdata('success', $siswa['nama_siswa'] . ' telah dikeluarkan dari sekolah');
+            redirect('admin/siswa/pindah_keluar');
+        }
+    }
 }

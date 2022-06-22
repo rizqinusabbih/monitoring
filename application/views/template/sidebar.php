@@ -91,6 +91,10 @@
                             </ul>
                         </li>
                     <?php endif; ?>
+
+                    <?php if (in_array('PINDAH_KELUAR', $this->session->userdata('access'))) : ?>
+                        <li class="<?php if (strpos(current_url(), 'pindah_keluar') !== false) echo 'active'; ?>"><a href="<?php echo base_url('admin/siswa/pindah_keluar'); ?>"><i class="fa fa-arrows-alt"></i> Pindah / Keluar</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
 
