@@ -74,4 +74,15 @@ class Tahun_akademik extends CI_Model
             return $query->row_array();
         }
     }
+
+    function getTahunawal()
+    {
+        $this->db->select("MAX(angkatan) as akhir");
+        $this->db->select("MIN(angkatan) as awal");
+        $query = $this->db->get($this->table . ' a', 1);
+
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
+        }
+    }
 }

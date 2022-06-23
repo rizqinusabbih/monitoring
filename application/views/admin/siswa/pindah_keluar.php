@@ -93,6 +93,106 @@
                 </div>
             </div>
 
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Daftar Siswa Pindah / Keluar <small>TA <?php echo $tahun_aktif['tahun_akademik']; ?></small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <div class="col-md-12 col-sm-9 col-xs-12">
+
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="true">Siswa Pindah</a>
+                                    </li>
+                                    <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Siswa Dikeluarkan</a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+
+                                    <!-- start siswa pindah -->
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content2" aria-labelledby="profile-tab">
+                                        <table id="datatable-fixed-header" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Nim</th>
+                                                    <th>Nama Siswa</th>
+                                                    <th>Tahun Pindah</th>
+                                                    <th>Keterangan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no = 1; ?>
+                                                <?php if ($pindah) : ?>
+                                                    <?php foreach ($pindah as $row) : ?>
+                                                        <tr>
+                                                            <td width="20"><?php echo $no++; ?></td>
+                                                            <td><?php echo $row['nis']; ?></td>
+                                                            <td><?php echo $row['nama_siswa']; ?></td>
+                                                            <td><?php echo $row['tahun_lulus_keluar']; ?></td>
+                                                            <td><?php echo $row['keterangan_keluar']; ?></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end siswa pindah -->
+
+                                    <!-- start siswa dikeluarkan -->
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                        <table id="datatable-fixed-header" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Nim</th>
+                                                    <th>Nama Siswa</th>
+                                                    <th>Tahun Dikeluarkan</th>
+                                                    <th>Keterangan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $no = 1; ?>
+                                                <?php if ($dikeluarkan) : ?>
+                                                    <?php foreach ($dikeluarkan as $rows) : ?>
+                                                        <tr>
+                                                            <td width="20"><?php echo $no++; ?></td>
+                                                            <td><?php echo $rows['nis']; ?></td>
+                                                            <td><?php echo $rows['nama_siswa']; ?></td>
+                                                            <td><?php echo $rows['tahun_lulus_keluar']; ?></td>
+                                                            <td><?php echo $rows['keterangan_keluar']; ?></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- end siswa dikeluarkan -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

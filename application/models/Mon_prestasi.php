@@ -89,4 +89,21 @@ class Mon_prestasi extends CI_Model
             return $query->result_array();
         }
     }
+
+    function countAll()
+    {
+        return $this->db->get($this->table)->num_rows();
+    }
+
+    function countAktif($id_tahun_akademik)
+    {
+        $this->db->select('COUNT(id_mon_prestasi) as prestasi_pertahun');
+        $this->db->where('id_tahun_akademik', $id_tahun_akademik);
+        $this->db->group_by('DATE_FORMAT(tgl_prestasi, "%m")');
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
 }

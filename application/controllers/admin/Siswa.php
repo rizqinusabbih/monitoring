@@ -142,6 +142,9 @@ class Siswa extends CI_Controller
         $id_wali_kelas = $this->session->userdata('id_guru');
         $kelas = $this->mst_kelas->getDataByIdWali($id_wali_kelas);
         $data['siswa'] = $this->mst_siswa->getAllByIdKelas($kelas['id_kelas']);
+        $data['pindah'] = $this->mst_siswa->getDataByStatus('pindah');
+        $data['dikeluarkan'] = $this->mst_siswa->getDataByStatus('dikeluarkan');
+        $data['tahun_aktif'] = $this->akademik->getTahunaktif();
 
         // View website
         $data['content']    = 'admin/siswa/pindah_keluar';

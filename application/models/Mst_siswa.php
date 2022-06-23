@@ -86,4 +86,34 @@ class Mst_siswa extends CI_Model
             return $query->result_array();
         }
     }
+
+    function getDataByStatus($status)
+    {
+        $this->db->select('*, a.id_siswa');
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik', 'left');
+        $this->db->where('a.status', $status);
+        $this->db->where('is_aktif', 'aktif');
+        $this->db->order_by('a.nis');
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+    function countAll()
+    {
+        return $this->db->get($this->table)->num_rows();
+    }
+
+    function countAllByStatus($status)
+    {
+        $this->db->select("COUNT(status) as $status");
+        $this->db->where('status', $status);
+        $query = $this->db->get($this->table . ' a', 1);
+
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
+        }
+    }
 }
