@@ -22,8 +22,8 @@ class Dashboard extends CI_Controller
         $data['menu_open']  = 'dahsboard'; // samakan dengan nama controller membuat menu open
         $data['page']       = 'Dashboard';
 
-        $tahun_aktif        = $this->akademik->getTahunaktif();
-        $id_tahun_akademik  = $tahun_aktif['id_tahun_akademik'];
+        $data['tahun_aktif'] = $this->akademik->getTahunaktif();
+        $id_tahun_akademik  = $data['tahun_aktif']['id_tahun_akademik'];
         // Tahun awal dan akhir
         $data['sejak']          = $this->akademik->getTahunawal();
         // Jumlah siswa
@@ -34,6 +34,8 @@ class Dashboard extends CI_Controller
         // Jumlah Monitoring
         $data['all_prestasi']       = $this->mon_prestasi->countAll();
         $data['all_pelanggaran']    = $this->mon_pelanggaran->countAll();
+        // Grafik total prestasi/pelanggaran / grup by tahun akademik
+        $data['all_gra_prestasi']   = $this->mon_prestasi->countByTa();
         // Grafik prestasi/pelanggaran / bulan / ta aktif
         $data['gra_prestasi']       = $this->mon_prestasi->countAktif($id_tahun_akademik);
         $data['gra_pelanggaran']    = $this->mon_pelanggaran->countAktif($id_tahun_akademik);

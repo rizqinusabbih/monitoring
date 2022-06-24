@@ -18,24 +18,30 @@
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
-    <!-- bootstrap-progressbar -->
-    <link href="<?php echo base_url('assets/template/back/'); ?>vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="<?php echo base_url('assets/template/back/'); ?>vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link href="<?php echo base_url('assets/template/back/'); ?>vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Datatables -->
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Morris Chart -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <!-- Icon -->
     <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/template/back/'); ?>build/css/custom.min.css" rel="stylesheet">
+
+    <style>
+        #area-chart,
+        #line-chart,
+        #bar-chart,
+        #stacked,
+        #pie-chart,
+        #total-monitoring {
+            min-height: 250px;
+        }
+    </style>
 </head>
 
 <body class="nav-md">

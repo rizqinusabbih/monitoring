@@ -36,7 +36,7 @@ class Mprestasi extends CI_Controller
                     'nis'           => $murid['nis'],
                     'nama_siswa'    => $murid['nama_siswa'],
                     'prestasi'      => $monitoring['total_prestasi'],
-                    'point'      => $monitoring['total_point'],
+                    'point'         => $monitoring['total_point'],
                 ];
             }
         }
