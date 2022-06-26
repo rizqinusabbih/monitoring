@@ -35,11 +35,8 @@
  <script src="<?php echo base_url('assets/template/back/'); ?>vendors/jszip/dist/jszip.min.js"></script>
  <script src="<?php echo base_url('assets/template/back/'); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
  <script src="<?php echo base_url('assets/template/back/'); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
- <!-- Morris Chart -->
- <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
- <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
- <!-- Chart.js -->
- <script src="<?php echo base_url('assets/template/back/'); ?>vendors/Chart.js/dist/Chart.min.js"></script>
+ <!-- Apex Chart-->
+ <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
  <!-- Custom Theme Scripts -->
  <script src="<?php echo base_url('assets/template/back/'); ?>build/js/custom.min.js"></script>
@@ -137,33 +134,81 @@
      }
  </script>
 
- <!-- Morris Chart -->
  <script>
-     Morris.Donut({
-         element: 'pie-chart',
-         data: [{
-                 label: "Prestasi",
-                 value: <?php echo $all_prestasi; ?>
-             },
-             {
-                 label: "Pelanggaran",
-                 value: <?php echo $all_pelanggaran; ?>
-             }
-         ]
-     });
+     //  Grafik Total Prestasi / TA
+     var options = {
+         series: [
+             <?php foreach ($all_gra_prestasi as $value) : ?>
+                 <?php echo $value['total_pre'] . ","; ?>
+             <?php endforeach; ?>
+         ],
 
-     Morris.Donut({
-         element: 'total-monitoring',
-         data: [{
-                 label: "Prestasi",
-                 value: <?php echo $all_prestasi; ?>
-             },
-             {
-                 label: "Pelanggaran",
-                 value: <?php echo $all_pelanggaran; ?>
+         labels: [
+             <?php foreach ($all_gra_prestasi as $label) : ?>
+                 <?php echo "'" . $label['ta'] . "',"; ?>
+             <?php endforeach; ?>
+         ],
+         chart: {
+             height: 250,
+             type: 'donut',
+             toolbar: {
+                 show: true,
              }
-         ]
-     });
+         },
+     }
+
+     var chart = new ApexCharts(document.querySelector("#allgraprestasi-chart"), options);
+     chart.render();
+
+     //  Grafik Total Pelanggaran / TA
+     var options = {
+         series: [
+             <?php foreach ($all_gra_pelanggaran as $value) : ?>
+                 <?php echo $value['total_pel'] . ","; ?>
+             <?php endforeach; ?>
+         ],
+
+         labels: [
+             <?php foreach ($all_gra_pelanggaran as $label) : ?>
+                 <?php echo "'" . $label['ta'] . "',"; ?>
+             <?php endforeach; ?>
+         ],
+         chart: {
+             height: 250,
+             type: 'donut',
+             toolbar: {
+                 show: true,
+             }
+         },
+     }
+
+     var chart = new ApexCharts(document.querySelector("#allgrapelanggaran-chart"), options);
+     chart.render();
+
+     // Grafik Jumlah Prestasi/Pelanggaran / TA Aktif
+     var options = {
+         series: [<?php echo $gra_prestasi['prestasi_pertahun']; ?>, <?php echo $gra_pelanggaran['pelanggaran_pertahun']; ?>],
+         labels: ['Prestasi', 'Pelanggaran'],
+         colors: ['#2E8B57', '#e74c3c'],
+         chart: {
+             height: 250,
+             type: 'donut',
+             toolbar: {
+                 show: true,
+             }
+         },
+         plotOptions: {
+             pie: {
+                 donut: {
+                     labels: {
+                         show: true
+                     }
+                 }
+             }
+         }
+     };
+     var chart = new ApexCharts(document.querySelector("#donut-chart"), options);
+     chart.render();
  </script>
 
  </body>

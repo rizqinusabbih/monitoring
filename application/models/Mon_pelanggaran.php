@@ -99,7 +99,33 @@ class Mon_pelanggaran extends CI_Model
     {
         $this->db->select('COUNT(id_mon_pelanggaran) as pelanggaran_pertahun');
         $this->db->where('id_tahun_akademik', $id_tahun_akademik);
-        $this->db->group_by('DATE_FORMAT(tgl_pelanggaran, "%m")');
+        $query = $this->db->get($this->table . ' a', 1);
+
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
+        }
+    }
+
+    function countTop5($id_tahun_akademik)
+    {
+        $this->db->select('COUNT(a.id_pelanggaran) as top_5_pelanggaran');
+        $this->db->join('mst_pelanggaran', 'a.id_pelanggaran = mst_pelanggaran.id_pelanggaran');
+        $this->db->select('jenis_pelanggaran as jenis_pelanggaran');
+        $this->db->where('a.id_tahun_akademik', $id_tahun_akademik);
+        $this->db->group_by('a.id_pelanggaran');
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
+    function countByTa()
+    {
+        $this->db->select('COUNT(a.id_mon_pelanggaran) as total_pel');
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik');
+        $this->db->select('tahun_akademik as ta');
+        $this->db->group_by('a.id_tahun_akademik');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {

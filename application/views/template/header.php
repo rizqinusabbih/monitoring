@@ -24,8 +24,6 @@
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <!-- Morris Chart -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <!-- Icon -->
     <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 
@@ -37,7 +35,7 @@
         #line-chart,
         #bar-chart,
         #stacked,
-        #pie-chart,
+        #donut-chart,
         #total-monitoring {
             min-height: 250px;
         }

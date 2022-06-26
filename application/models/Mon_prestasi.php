@@ -98,9 +98,20 @@ class Mon_prestasi extends CI_Model
     function countAktif($id_tahun_akademik)
     {
         $this->db->select('COUNT(id_mon_prestasi) as prestasi_pertahun');
-        $this->db->select('DATE_FORMAT(a.tgl_prestasi, "%m") as bulan');
         $this->db->where('id_tahun_akademik', $id_tahun_akademik);
-        $this->db->group_by('DATE_FORMAT(tgl_prestasi, "%m")');
+        $query = $this->db->get($this->table . ' a', 1);
+
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
+        }
+    }
+
+    function countByTa()
+    {
+        $this->db->select('COUNT(a.id_mon_prestasi) as total_pre');
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik');
+        $this->db->select('tahun_akademik as ta');
+        $this->db->group_by('a.id_tahun_akademik');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
@@ -108,11 +119,13 @@ class Mon_prestasi extends CI_Model
         }
     }
 
-    function countByTa()
+    function countTop5($id_tahun_akademik)
     {
-        $this->db->select('COUNT(id_mon_prestasi) as total_pre');
-        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik');
-        $this->db->group_by('a.id_tahun_akademik');
+        $this->db->select('COUNT(a.id_prestasi) as top_5_prestasi');
+        $this->db->join('mst_prestasi', 'a.id_prestasi = mst_prestasi.id_prestasi');
+        $this->db->select('jenis_prestasi as jenis_prestasi');
+        $this->db->where('a.id_tahun_akademik', $id_tahun_akademik);
+        $this->db->group_by('a.id_prestasi');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
