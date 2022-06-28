@@ -36,7 +36,7 @@
     <!-- /top tiles -->
 
     <div class="row">
-        <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Grafik Total Prestasi Siswa <small>/ Tahun Akademik</small></h2>
@@ -55,7 +55,7 @@
         </div>
 
 
-        <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Grafik Total Pelanggaran Siswa <small>/ Tahun Akademik</small></h2>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Monitoring Siswa <small><?php echo 'TA ' . $tahun_aktif['tahun_akademik']; ?></small></h2>

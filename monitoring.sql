@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2022 at 11:27 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Jun 28, 2022 at 06:26 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -158,7 +158,12 @@ INSERT INTO `mst_menu` (`id_menu`, `menu`) VALUES
 (8, 'MASTER_DATA_PRESTASI'),
 (9, 'MASTER_DATA_PELANGGARAN'),
 (10, 'MONITORING_PRESTASI'),
-(11, 'MONITORING_PELANGGARAN');
+(11, 'MONITORING_PELANGGARAN'),
+(12, 'PINDAH_KELUAR'),
+(13, 'LAPORAN_PRESTASI'),
+(14, 'LAPORAN_PELANGGARAN'),
+(15, 'LAPORAN_SISWA'),
+(16, 'LAPORAN_SISWA_ALUMNI');
 
 -- --------------------------------------------------------
 
@@ -250,7 +255,7 @@ CREATE TABLE `mst_siswa` (
   `id_tahun_akademik` int(11) NOT NULL,
   `nis` varchar(30) NOT NULL,
   `nama_siswa` varchar(128) NOT NULL,
-  `id_kelas` int(11) NOT NULL,
+  `id_kelas` int(11) DEFAULT NULL,
   `status` enum('aktif','lulus','pindah','dikeluarkan') NOT NULL,
   `tahun_lulus_keluar` varchar(20) DEFAULT NULL,
   `nama_ibu` varchar(128) DEFAULT NULL,
@@ -264,7 +269,8 @@ CREATE TABLE `mst_siswa` (
 INSERT INTO `mst_siswa` (`id_siswa`, `id_tahun_akademik`, `nis`, `nama_siswa`, `id_kelas`, `status`, `tahun_lulus_keluar`, `nama_ibu`, `keterangan_keluar`) VALUES
 (1, 1, '201001', 'Rizqi', 1, 'aktif', NULL, NULL, NULL),
 (2, 1, '201002', 'Nusabbih', 1, 'aktif', NULL, NULL, NULL),
-(3, 1, '201003', 'Hidayatullah', 1, 'aktif', NULL, NULL, NULL);
+(3, 1, '201003', 'Hidayatullah', 1, 'aktif', NULL, NULL, NULL),
+(4, 1, '201004', 'Tes', NULL, 'dikeluarkan', '2022', NULL, 'Berperilaku buruk');
 
 -- --------------------------------------------------------
 
@@ -339,7 +345,18 @@ INSERT INTO `user_access` (`id`, `level`, `id_menu`) VALUES
 (10, 0, 10),
 (11, 0, 11),
 (12, 2, 10),
-(13, 2, 11);
+(13, 2, 11),
+(14, 0, 12),
+(15, 2, 12),
+(16, 0, 13),
+(17, 0, 14),
+(18, 1, 2),
+(19, 1, 13),
+(20, 1, 14),
+(21, 0, 15),
+(22, 0, 16),
+(23, 1, 15),
+(24, 1, 16);
 
 --
 -- Indexes for dumped tables
@@ -455,7 +472,7 @@ ALTER TABLE `mst_kelas`
 -- AUTO_INCREMENT for table `mst_menu`
 --
 ALTER TABLE `mst_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `mst_pelanggaran`
@@ -473,7 +490,7 @@ ALTER TABLE `mst_prestasi`
 -- AUTO_INCREMENT for table `mst_siswa`
 --
 ALTER TABLE `mst_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tahun_akademik`
@@ -491,7 +508,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access`
 --
 ALTER TABLE `user_access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -73,13 +73,12 @@
                 </ul>
 
                 <!-- Wali Kelas -->
-                <h3>Wali Kelas</h3>
-                <ul class="nav side-menu">
-
-                    <?php if (
-                        in_array('MONITORING_PRESTASI', $this->session->userdata('access'))
-                        || in_array('MONITORING_PELANGGARAN', $this->session->userdata('access'))
-                    ) : ?>
+                <?php if (
+                    in_array('MONITORING_PRESTASI', $this->session->userdata('access'))
+                    || in_array('MONITORING_PELANGGARAN', $this->session->userdata('access'))
+                ) : ?>
+                    <h3>Wali Kelas</h3>
+                    <ul class="nav side-menu">
                         <li class="<?php if ($menu_open == 'mprestasi' or $menu_open == 'mpelanggaran') echo 'active'; ?>"><a><i class="fa fa-pencil-square-o"></i> Monitoring <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu" style="<?php if ($menu_open == 'mprestasi' or $menu_open == 'mpelanggaran') echo 'display: block;'; ?>">
                                 <?php if (in_array('MONITORING_PRESTASI', $this->session->userdata('access'))) : ?>
@@ -95,7 +94,35 @@
                     <?php if (in_array('PINDAH_KELUAR', $this->session->userdata('access'))) : ?>
                         <li class="<?php if (strpos(current_url(), 'pindah_keluar') !== false) echo 'active'; ?>"><a href="<?php echo base_url('admin/siswa/pindah_keluar'); ?>"><i class="fa fa-arrows-alt"></i> Pindah / Keluar</a></li>
                     <?php endif; ?>
-                </ul>
+                    </ul>
+
+                    <!-- Kepala Sekolah -->
+                    <?php if (
+                        in_array('LAPORAN_PRESTASI', $this->session->userdata('access'))
+                        || in_array('LAPORAN_PELANGGARAN', $this->session->userdata('access'))
+                        || in_array('LAPORAN_SISWA', $this->session->userdata('access'))
+                        || in_array('LAPORAN_SISWA_ALUMNI', $this->session->userdata('access'))
+                    ) : ?>
+                        <h3>Kepala Sekolah</h3>
+                        <ul class="nav side-menu">
+                            <li class="<?php if ($menu_open == 'lapprestasi' or $menu_open == 'lappelanggaran' or $menu_open == 'lapsiswa' or $menu_open == 'lapsiswa_alumni') echo 'active'; ?>"><a><i class="fa fa-download"></i> Laporan <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="<?php if ($menu_open == 'lapprestasi' or $menu_open == 'lappelanggaran' or $menu_open == 'lapsiswa' or $menu_open == 'lapsiswa_alumni') echo 'display: block;'; ?>">
+                                    <?php if (in_array('LAPORAN_PRESTASI', $this->session->userdata('access'))) : ?>
+                                        <li <?php if ($menu_open == 'lapprestasi') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/lapprestasi'); ?>">Prestasi Siswa</a></li>
+                                    <?php endif; ?>
+                                    <?php if (in_array('LAPORAN_PELANGGARAN', $this->session->userdata('access'))) : ?>
+                                        <li <?php if ($menu_open == 'lappelanggaran') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/lappelanggaran'); ?>">Pelanggaran Siswa</a></li>
+                                    <?php endif; ?>
+                                    <?php if (in_array('LAPORAN_SISWA', $this->session->userdata('access'))) : ?>
+                                        <li <?php if ($menu_open == 'lapsiswa') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/lapsiswa'); ?>">Jumlah Siswa</a></li>
+                                    <?php endif; ?>
+                                    <?php if (in_array('LAPORAN_SISWA_ALUMNI', $this->session->userdata('access'))) : ?>
+                                        <li <?php if ($menu_open == 'lapsiswa_alumni') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/lapsiswa/alumni'); ?>">Alumni</a></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                        </ul>
             </div>
 
         </div>

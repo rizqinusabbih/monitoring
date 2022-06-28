@@ -149,7 +149,7 @@
              <?php endforeach; ?>
          ],
          chart: {
-             height: 250,
+             height: 150,
              type: 'donut',
              toolbar: {
                  show: true,
@@ -174,7 +174,7 @@
              <?php endforeach; ?>
          ],
          chart: {
-             height: 250,
+             height: 150,
              type: 'donut',
              toolbar: {
                  show: true,
@@ -191,7 +191,7 @@
          labels: ['Prestasi', 'Pelanggaran'],
          colors: ['#2E8B57', '#e74c3c'],
          chart: {
-             height: 250,
+             height: 150,
              type: 'donut',
              toolbar: {
                  show: true,

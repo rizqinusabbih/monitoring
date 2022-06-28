@@ -23,6 +23,7 @@
                     </div>
                 <?php endif; ?>
             </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -40,24 +41,25 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>User Level</th>
+                                    <th>Angkatan</th>
+                                    <th>Jumlah Siswa Alumni</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <?php foreach ($menu as $row) : ?>
-                                    <tr>
-                                        <td width="20"><?php echo $no++; ?></td>
-                                        <td><?php echo $row['menu']; ?></td>
-                                        <td>
-                                            <div class="custom-control custom-switch">
-                                                <input class="custom-control-input input-user-access" id="menu-<?php echo $row['id_menu']; ?>" type="checkbox" <?php echo check_access($level, $row['id_menu']); ?> data-level="<?php echo $level; ?>" data-menu="<?php echo $row['id_menu']; ?>">
-                                                <label class="custom-control-label" for="menu-<?php echo $row['id_menu']; ?>"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                <?php if ($alumni) : ?>
+                                    <?php foreach ($alumni as $row) : ?>
+                                        <tr>
+                                            <td width="20"><?php echo $no++; ?></td>
+                                            <td><?php echo $row['angkatan']; ?></td>
+                                            <td><?php echo $row['jml_alumni']; ?></td>
+                                            <td>
+                                                <a href="<?php echo base_url('admin/lapsiswa/detail_alumni/' . $row['id_tahun_akademik']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Detail"><i class="fa fa-search"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
