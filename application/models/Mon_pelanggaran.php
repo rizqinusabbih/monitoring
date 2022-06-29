@@ -35,7 +35,10 @@ class Mon_pelanggaran extends CI_Model
     function getAllData()
     {
         $this->db->select('*, a.id_mon_pelanggaran');
-        $this->db->order_by('a.id_pelanggaran', 'desc');
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik');
+        $this->db->join('mst_siswa', 'a.id_siswa = mst_siswa.id_siswa');
+        $this->db->join('mst_pelanggaran', 'a.id_pelanggaran = mst_pelanggaran.id_pelanggaran');
+        $this->db->order_by('a.id_mon_pelanggaran', 'desc');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
@@ -130,6 +133,21 @@ class Mon_pelanggaran extends CI_Model
 
         if ($query->num_rows() > 0) {
             return $query->result_array();
+        }
+    }
+
+    function countByKelasTA($id_tahun_akademik, $id_kelas)
+    {
+        $this->db->select("COUNT(a.id_mon_pelanggaran) as pelanggaran");
+        $this->db->join('tahun_akademik', 'a.id_tahun_akademik = tahun_akademik.id_tahun_akademik');
+        $this->db->join('mst_siswa', 'a.id_siswa = mst_siswa.id_siswa');
+        $this->db->join('mst_kelas', 'mst_siswa.id_kelas = mst_kelas.id_kelas');
+        $this->db->where('a.id_tahun_akademik', $id_tahun_akademik);
+        $this->db->where('mst_kelas.id_kelas', $id_kelas);
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
         }
     }
 }

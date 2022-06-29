@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2022 at 06:26 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Jun 29, 2022 at 06:38 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -130,7 +130,11 @@ CREATE TABLE `mst_kelas` (
 
 INSERT INTO `mst_kelas` (`id_kelas`, `nama_kelas`, `id_jurusan`, `id_guru`) VALUES
 (1, 'X', 1, 2),
-(2, 'X', 2, 3);
+(2, 'X', 2, 3),
+(3, 'XI', 1, NULL),
+(4, 'XI', 2, NULL),
+(5, 'XII', 1, NULL),
+(6, 'XII', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -241,8 +245,16 @@ CREATE TABLE `mst_prestasi` (
 --
 
 INSERT INTO `mst_prestasi` (`id_prestasi`, `jenis_prestasi`, `point`) VALUES
-(1, 'Juara Olimpiade', 10),
-(2, 'Juara Kelas', 8);
+(1, 'Juara lomba tingkat nasional', 150),
+(2, 'Juara lomba tingkat provinsi', 100),
+(3, 'Juara lomba tingkat kabupaten/kota', 50),
+(4, 'Juara lomba tingkat kecamatan', 25),
+(5, 'Juara lomba tingkat sekolah', 20),
+(6, 'Peringkat 1-3 kelas', 20),
+(7, 'Pengurus aktif OSIS/Pramuka', 10),
+(8, 'Pengurus aktif kelas', 5),
+(9, 'Menjadi panitia kegiatan sekolah', 5),
+(10, 'Mendapat nilai tertinggi ulangan harian', 5);
 
 -- --------------------------------------------------------
 
@@ -466,7 +478,7 @@ ALTER TABLE `mst_jurusan`
 -- AUTO_INCREMENT for table `mst_kelas`
 --
 ALTER TABLE `mst_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `mst_menu`
@@ -484,7 +496,7 @@ ALTER TABLE `mst_pelanggaran`
 -- AUTO_INCREMENT for table `mst_prestasi`
 --
 ALTER TABLE `mst_prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `mst_siswa`

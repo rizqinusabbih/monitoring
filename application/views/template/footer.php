@@ -135,6 +135,70 @@
  </script>
 
  <script>
+     // Grafik prestasi/pelanggaran / tahun akademik aktif / kelas
+     var options = {
+         series: [{
+             name: 'Prestasi',
+             data: [
+                 <?php foreach ($kelas as $prestasi) : ?>
+                     <?php echo "'" . $prestasi['prestasi'] . "',"; ?>
+                 <?php endforeach; ?>
+             ]
+         }, {
+             name: 'Pelanggaran',
+             data: [
+                 <?php foreach ($kelas as $pelanggaran) : ?>
+                     <?php echo "'" . $pelanggaran['pelanggaran'] . "',"; ?>
+                 <?php endforeach; ?>
+             ]
+         }],
+         chart: {
+             type: 'bar',
+             height: 350
+         },
+         plotOptions: {
+             bar: {
+                 horizontal: false,
+                 columnWidth: '55%',
+                 endingShape: 'rounded'
+             },
+         },
+         colors: ['#24DA84', '#FF3333'],
+         dataLabels: {
+             enabled: false
+         },
+         stroke: {
+             show: true,
+             width: 2,
+             colors: ['transparent']
+         },
+         xaxis: {
+             categories: [
+                 <?php foreach ($kelas as $nama_kelas) : ?>
+                     <?php echo "'" . $nama_kelas['nama_kelas'] . "',"; ?>
+                 <?php endforeach; ?>
+             ],
+         },
+         yaxis: {
+             title: {
+                 text: "Monitoring TA <?php echo $tahun_aktif['tahun_akademik']; ?>"
+             }
+         },
+         fill: {
+             opacity: 1
+         },
+         tooltip: {
+             y: {
+                 formatter: function(val) {
+                     return val
+                 }
+             }
+         }
+     };
+
+     var chart = new ApexCharts(document.querySelector("#kelas-chart"), options);
+     chart.render();
+
      //  Grafik Total Prestasi / TA
      var options = {
          series: [
@@ -189,7 +253,7 @@
      var options = {
          series: [<?php echo $gra_prestasi['prestasi_pertahun']; ?>, <?php echo $gra_pelanggaran['pelanggaran_pertahun']; ?>],
          labels: ['Prestasi', 'Pelanggaran'],
-         colors: ['#2E8B57', '#e74c3c'],
+         colors: ['#24DA84', '#FF3333'],
          chart: {
              height: 150,
              type: 'donut',

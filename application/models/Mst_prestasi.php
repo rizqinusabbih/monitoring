@@ -35,7 +35,8 @@ class Mst_prestasi extends CI_Model
     function getAllData()
     {
         $this->db->select('*, a.id_prestasi');
-        $this->db->order_by('a.jenis_prestasi', 'desc');
+        $this->db->order_by('a.point', 'desc');
+        $this->db->order_by('a.jenis_prestasi');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {
