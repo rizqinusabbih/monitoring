@@ -52,9 +52,9 @@
                                 <?php if (in_array('MASTER_DATA_GURU', $this->session->userdata('access'))) : ?>
                                     <li <?php if ($menu_open == 'guru') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/guru'); ?>">Guru</a></li>
                                 <?php endif; ?>
-                                <?php if (in_array('MASTER_DATA_JURUSAN', $this->session->userdata('access'))) : ?>
+                                <!-- <?php if (in_array('MASTER_DATA_JURUSAN', $this->session->userdata('access'))) : ?>
                                     <li <?php if ($menu_open == 'jurusan') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/jurusan'); ?>">Jurusan</a></li>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
                                 <?php if (in_array('MASTER_DATA_KELAS', $this->session->userdata('access'))) : ?>
                                     <li <?php if ($menu_open == 'kelas') echo "class='current-page'"; ?>><a href="<?php echo base_url('admin/kelas'); ?>">Kelas</a></li>
                                 <?php endif; ?>

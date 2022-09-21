@@ -44,6 +44,17 @@ class Mst_pelanggaran extends CI_Model
         }
     }
 
+    function getAllOrderByKode()
+    {
+        $this->db->select('*, a.id_pelanggaran');
+        $this->db->order_by('a.kode_pelanggaran');
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+    }
+
     function getDataById($id)
     {
         $this->db->select('*, a.id_pelanggaran');

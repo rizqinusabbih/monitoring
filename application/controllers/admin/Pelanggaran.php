@@ -40,6 +40,9 @@ class Pelanggaran extends CI_Controller
 
     public function do_add()
     {
+        $this->form_validation->set_rules('kode_pelanggaran', 'Alias', 'required', [
+            'required' => 'Kode pelanggaran harus diisi'
+        ]);
         $this->form_validation->set_rules('jenis_pelanggaran', 'Alias', 'required', [
             'required' => 'Jenis pelanggaran harus diisi'
         ]);
@@ -52,6 +55,7 @@ class Pelanggaran extends CI_Controller
         } else {
             // Tampung data
             $data = [
+                'kode_pelanggaran'    => $this->input->post('kode_pelanggaran'),
                 'jenis_pelanggaran'    => $this->input->post('jenis_pelanggaran'),
                 'poin'    => $this->input->post('poin'),
             ];
@@ -95,6 +99,7 @@ class Pelanggaran extends CI_Controller
         } else {
             // Tampung data
             $data = [
+                'kode_pelanggaran'    => $this->input->post('kode_pelanggaran'),
                 'jenis_pelanggaran'    => $this->input->post('jenis_pelanggaran'),
                 'poin'    => $this->input->post('poin'),
             ];

@@ -51,7 +51,7 @@
                                     <select name="id_kelas" id="id_kelas" class="form-control">
                                         <option value="">- Pilih Kelas -</option>
                                         <?php foreach ($kelas as $one) : ?>
-                                            <option value="<?php echo $one['id_kelas']; ?>" <?php echo $one['id_kelas'] == $siswa['id_kelas'] ? 'selected' : ''; ?>><?php echo $one['nama_kelas'] . ' - ' . $one['nama_jurusan']; ?></option>
+                                            <option value="<?php echo $one['id_kelas']; ?>" <?php echo $one['id_kelas'] == $siswa['id_kelas'] ? 'selected' : ''; ?>><?php echo $one['nama_kelas']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="form-text text-danger"><?php echo form_error('id_kelas'); ?></small>

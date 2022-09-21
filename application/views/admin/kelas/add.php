@@ -37,11 +37,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="nama_kelas">Nama Kelas * :</label>
-                                    <input type="text" name="nama_kelas" id="nama_kelas" class="form-control" value="<?php echo set_value('nama_kelas'); ?>" required />
+                                    <input type="text" name="nama_kelas" id="nama_kelas" class="form-control" value="<?php echo set_value('nama_kelas'); ?>" />
                                     <small class="form-text text-danger"><?php echo form_error('nama_kelas'); ?></small>
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="id_jurusan">Jurusan * :</label>
+                                <!-- <div class="form-group col-md-12">
+                                    <label for="id_jurusan">Jurusan :</label>
                                     <select name="id_jurusan" id="id_jurusan" class="form-control">
                                         <option value="">- Pilih Jurusan -</option>
                                         <?php foreach ($jurusan as $one) : ?>
@@ -49,13 +49,13 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="form-text text-danger"><?php echo form_error('id_jurusan'); ?></small>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-md-12">
-                                    <label for="id_guru">Wali Kelas * :</label>
+                                    <label for="id_guru">Wali Kelas :</label>
                                     <select name="id_guru" id="id_guru" class="form-control">
                                         <option value="">- Pilih Wali Kelas -</option>
                                         <?php foreach ($guru as $two) : ?>
-                                            <option value="<?php echo $two['id_guru']; ?>"><?php echo $two['nama_guru']; ?></option>
+                                            <option value="<?php echo $two['id_guru']; ?>"><?php echo $two['nama_kelas'] ? $two['nama_guru'] . ' - Wali Kelas ' . $two['nama_kelas'] . ' ' . $two['nama_jurusan'] : $two['nama_guru']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="form-text text-danger"><?php echo form_error('id_guru'); ?></small>

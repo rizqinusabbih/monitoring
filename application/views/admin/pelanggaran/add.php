@@ -36,13 +36,18 @@
                         <form action="<?php echo base_url('admin/pelanggaran/do_add'); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
+                                    <label for="kode_pelanggaran">Kode Pelanggaran * :</label>
+                                    <input type="number" name="kode_pelanggaran" id="kode_pelanggaran" class="form-control" value="<?php echo set_value('kode_pelanggaran'); ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('kode_pelanggaran'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
                                     <label for="jenis_pelanggaran">Jenis Pelanggaran * :</label>
                                     <input type="text" name="jenis_pelanggaran" id="jenis_pelanggaran" class="form-control" value="<?php echo set_value('jenis_pelanggaran'); ?>" required />
                                     <small class="form-text text-danger"><?php echo form_error('jenis_pelanggaran'); ?></small>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="poin">Poin * :</label>
-                                    <input type="text" name="poin" id="poin" class="form-control" value="<?php echo set_value('poin'); ?>" required />
+                                    <input type="number" name="poin" id="poin" class="form-control" value="<?php echo set_value('poin'); ?>" required />
                                     <small class="form-text text-danger"><?php echo form_error('poin'); ?></small>
                                 </div>
                                 <br>

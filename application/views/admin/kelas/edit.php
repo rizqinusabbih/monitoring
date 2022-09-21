@@ -40,8 +40,8 @@
                                     <input type="text" name="nama_kelas" id="nama_kelas" class="form-control" value="<?php echo $kelas['nama_kelas']; ?>" required />
                                     <small class="form-text text-danger"><?php echo form_error('nama_kelas'); ?></small>
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="id_jurusan">Jurusan * :</label>
+                                <!-- <div class="form-group col-md-12">
+                                    <label for="id_jurusan">Jurusan :</label>
                                     <select name="id_jurusan" id="id_jurusan" class="form-control">
                                         <option value="">- Pilih Jurusan -</option>
                                         <?php foreach ($jurusan as $one) : ?>
@@ -49,7 +49,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="form-text text-danger"><?php echo form_error('id_jurusan'); ?></small>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-md-12">
                                     <label for="id_guru">Wali Kelas * :</label>
                                     <select name="id_guru" id="id_guru" class="form-control">

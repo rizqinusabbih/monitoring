@@ -53,7 +53,7 @@
                                     <?php foreach ($kelas as $row) : ?>
                                         <tr>
                                             <td width="20"><?php echo $no++; ?></td>
-                                            <td><?php echo $row['nama_kelas'] . ' - ' . $row['nama_jurusan']; ?></td>
+                                            <td><?php echo $row['nama_kelas']; ?></td>
                                             <td><?php echo $row['nama_guru']; ?></td>
                                             <td>
                                                 <a href="<?php echo base_url('admin/kelas/edit/' . $row['id_kelas']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>

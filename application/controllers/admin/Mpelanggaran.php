@@ -36,7 +36,7 @@ class Mpelanggaran extends CI_Controller
                     'nis'           => $murid['nis'],
                     'nama_siswa'    => $murid['nama_siswa'],
                     'prestasi'      => $monitoring['total_pelanggaran'],
-                    'point'      => $monitoring['total_poin'],
+                    'point'         => $monitoring['total_poin'],
                 ];
             }
         }
@@ -45,7 +45,7 @@ class Mpelanggaran extends CI_Controller
         $data['page']       = 'Siswa Kelas ' . $kelas['nama_kelas'] . ' ' . $kelas['nama_jurusan'];
         $data['tahunakademik']  = $this->akademik->getTahunaktif();
         $data['siswa']          = $this->mst_siswa->getAllByIdKelas($kelas['id_kelas']);
-        $data['pelanggaran']       = $this->mst_pelanggaran->getAllData();
+        $data['pelanggaran']       = $this->mst_pelanggaran->getAllOrderByKode();
 
         // View website
         $data['content']    = 'admin/monitoring/pelanggaran';

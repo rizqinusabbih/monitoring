@@ -57,7 +57,7 @@
                                             <td width="20"><?php echo $no++; ?></td>
                                             <td><?php echo $row['nis']; ?></td>
                                             <td><?php echo $row['nama_siswa']; ?></td>
-                                            <td><?php echo $row['nama_kelas'] . ' - ' . $row['nama_jurusan']; ?></td>
+                                            <td><?php echo $row['nama_kelas']; ?></td>
                                             <td><?php echo $row['angkatan']; ?></td>
                                             <td>
                                                 <a href="<?php echo base_url('admin/siswa/edit/' . $row['id_siswa']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>

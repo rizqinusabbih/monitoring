@@ -53,7 +53,7 @@
                                     <select name="id_pelanggaran" id="id_pelanggaran" class="form-control">
                                         <option value="">- Pilih Jenis Pelanggaran -</option>
                                         <?php foreach ($pelanggaran as $two) : ?>
-                                            <option value="<?php echo $two['id_pelanggaran']; ?>"><?php echo $two['jenis_pelanggaran']; ?></option>
+                                            <option value="<?php echo $two['id_pelanggaran']; ?>"><?php echo $two['kode_pelanggaran'] . ' - ' . $two['jenis_pelanggaran']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <small class="form-text text-danger"><?php echo form_error('id_pelanggaran'); ?></small>

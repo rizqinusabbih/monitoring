@@ -36,6 +36,11 @@
                         <form action="<?php echo base_url('admin/pelanggaran/do_edit/' . $pelanggaran['id_pelanggaran']); ?>" method="post">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
+                                    <label for="kode_pelanggaran">Kode Pelanggaran * :</label>
+                                    <input type="text" name="kode_pelanggaran" id="kode_pelanggaran" class="form-control" value="<?php echo $pelanggaran['kode_pelanggaran']; ?>" required />
+                                    <small class="form-text text-danger"><?php echo form_error('kode_pelanggaran'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
                                     <label for="jenis_pelanggaran">Jenis Pelanggaran * :</label>
                                     <input type="text" name="jenis_pelanggaran" id="jenis_pelanggaran" class="form-control" value="<?php echo $pelanggaran['jenis_pelanggaran']; ?>" required />
                                     <small class="form-text text-danger"><?php echo form_error('jenis_pelanggaran'); ?></small>
