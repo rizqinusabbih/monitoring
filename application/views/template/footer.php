@@ -35,6 +35,8 @@
  <script src="<?php echo base_url('assets/template/back/'); ?>vendors/jszip/dist/jszip.min.js"></script>
  <script src="<?php echo base_url('assets/template/back/'); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
  <script src="<?php echo base_url('assets/template/back/'); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
+ <!-- Select picker -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.0/dist/js/bootstrap-select.min.js"></script>
  <!-- Apex Chart-->
  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
@@ -43,6 +45,10 @@
 
  <!-- Jquery Insert Checkbox USER ACCESS MENU -->
  <script>
+     $('select').selectpicker({
+         liveSearch: true,
+         size: 10,
+     });
      // Alert
      $(document).ready(function() {
          $(function() {

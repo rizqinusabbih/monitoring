@@ -24,22 +24,13 @@
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('assets/template/back/'); ?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Select picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.0/dist/css/bootstrap-select.min.css">
     <!-- Icon -->
     <link rel="icon" href="<?php echo base_url('assets/images/icon.png'); ?>">
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url('assets/template/back/'); ?>build/css/custom.min.css" rel="stylesheet">
-
-    <style>
-        #area-chart,
-        #line-chart,
-        #bar-chart,
-        #stacked,
-        #donut-chart,
-        #total-monitoring {
-            min-height: 250px;
-        }
-    </style>
 </head>
 
 <body class="nav-md">

@@ -39,7 +39,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <!-- <h2>Fixed Header Example <small>Users</small></h2> -->
+                    <h2>Grafik Prestasi dan Pelanggaran Siswa / Kelas<small>TA <?php echo $tahun_aktif['tahun_akademik']; ?></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -80,13 +80,13 @@
         <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Grafik Total Prestasi Siswa <small>/ Tahun Akademik</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
+                    <h2>Grafik Prestasi Siswa <small>/ Tahun Akademik</small></h2>
+                    <!-- <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -99,13 +99,13 @@
         <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Grafik Total Pelanggaran Siswa <small>/ Tahun Akademik</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
+                    <h2>Grafik Pelanggaran Siswa <small>/ Tahun Akademik</small></h2>
+                    <!-- <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -118,12 +118,12 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Monitoring Siswa <small><?php echo 'TA ' . $tahun_aktif['tahun_akademik']; ?></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
+                    <!-- <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -135,7 +135,7 @@
         <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Top 5 Pelanggaran <small><?php echo 'TA' . $tahun_aktif['tahun_akademik']; ?></small></h2>
+                    <h2>Top 5 Pelanggaran <small><?php echo 'TA ' . $tahun_aktif['tahun_akademik']; ?></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -165,7 +165,7 @@
         <div class="col-md-8 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Aktifitas Terbaru <small>Siswa TA <?php echo $tahun_aktif['tahun_akademik']; ?></small></h2>
+                    <h2>Aktifitas Terbaru Siswa<small>TA <?php echo $tahun_aktif['tahun_akademik']; ?></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
