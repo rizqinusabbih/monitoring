@@ -37,7 +37,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="kode_pelanggaran">Kode Pelanggaran * :</label>
-                                    <input type="number" name="kode_pelanggaran" id="kode_pelanggaran" class="form-control" value="<?php echo set_value('kode_pelanggaran'); ?>" required />
+                                    <input type="text" name="kode_pelanggaran" id="kode_pelanggaran" class="form-control" value="<?php echo set_value('kode_pelanggaran'); ?>" required />
                                     <small class="form-text text-danger"><?php echo form_error('kode_pelanggaran'); ?></small>
                                 </div>
                                 <div class="form-group col-md-12">
