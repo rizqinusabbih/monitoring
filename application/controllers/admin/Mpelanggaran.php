@@ -71,7 +71,7 @@ class Mpelanggaran extends CI_Controller
                 'id_pelanggaran'    => $this->input->post('id_pelanggaran'),
                 'jml_poin'    => $this->input->post('jml_poin'),
                 'keterangan'    => $this->input->post('keterangan') ? $this->input->post('keterangan') : null,
-                'tgl_pelanggaran'    => date('Y-m-d'),
+                'tgl_pelanggaran'    => $this->input->post('tgl_pelanggaran'),
                 'id_guru'    => $this->session->userdata('id_guru'),
             ];
 

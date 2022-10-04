@@ -49,6 +49,11 @@
                                     <small class="form-text text-danger"><?php echo form_error('id_siswa'); ?></small>
                                 </div>
                                 <div class="form-group col-md-12">
+                                    <label for="tgl_pelanggaran">Tanggal* :</label>
+                                    <input type="date" name="tgl_pelanggaran" id="tgl_pelanggaran" class="form-control"></input>
+                                    <small class="form-text text-danger"><?php echo form_error('tgl_pelanggaran'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
                                     <label for="id_pelanggaran">Pelanggaran * :</label>
                                     <select name="id_pelanggaran" id="id_pelanggaran" class="form-control">
                                         <option value="">- Pilih Jenis Pelanggaran -</option>
