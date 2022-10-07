@@ -116,6 +116,7 @@ class Mon_pelanggaran extends CI_Model
         $this->db->select('jenis_pelanggaran as jenis_pelanggaran');
         $this->db->where('a.id_tahun_akademik', $id_tahun_akademik);
         $this->db->group_by('a.id_pelanggaran');
+        $this->db->order_by('top_5_pelanggaran', 'desc');
         $query = $this->db->get($this->table . ' a');
 
         if ($query->num_rows() > 0) {

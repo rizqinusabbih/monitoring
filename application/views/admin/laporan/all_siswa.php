@@ -77,7 +77,7 @@
                                             <td width="20"><?php echo $no++; ?></td>
                                             <td><?php echo $row['nis']; ?></td>
                                             <td><?php echo $row['nama_siswa']; ?></td>
-                                            <td><?php echo $row['nama_kelas'] ? $row['nama_kelas'] . ' - ' . $row['nama_jurusan'] : $row['status'] . ' tahun ' . $row['tahun_lulus_keluar']; ?></td>
+                                            <td><?php echo $row['nama_kelas'] ? $row['nama_kelas'] : $row['status'] . ' tahun ' . $row['tahun_lulus_keluar']; ?></td>
                                             <td><?php echo $row['angkatan']; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
