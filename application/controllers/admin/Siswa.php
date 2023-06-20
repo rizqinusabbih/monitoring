@@ -25,6 +25,12 @@ class Siswa extends CI_Controller
         // Ambil data yang diperlukan
         $data['siswa']  = $this->mst_siswa->getAllData();
 
+        // untuk mengaktifkan tombol naik kelas
+        $data['akademik'] = $this->akademik->getTahunaktif();
+        // echo '<pre>';
+        // print_r($data['tingkat']);
+        // exit;
+
         // View website
         $data['content']    = 'admin/siswa/index';
         $this->load->view('template/template', $data);
@@ -182,5 +188,20 @@ class Siswa extends CI_Controller
             $this->session->set_flashdata('success', $siswa['nama_siswa'] . ' telah dikeluarkan dari sekolah');
             redirect('admin/siswa/pindah_keluar');
         }
+    }
+
+    public function naiktingkat($id_siswa, $id_kelas)
+    {
+        $siswa  = $this->mst_siswa->getDataById($id_siswa);
+        $kelas  = $this->mst_kelas->getDataById($id_kelas);
+        $data   = [
+            'id_kelas' => $id_kelas,
+        ];
+
+        // Update data
+        $where = array('id_siswa' => $id_siswa);
+        $this->mst_siswa->update($data, $where);
+        $this->session->set_flashdata('success', $siswa['nama_siswa'] . ' naik ke kelas ' . $kelas['nama_kelas']);
+        redirect('admin/siswa');
     }
 }

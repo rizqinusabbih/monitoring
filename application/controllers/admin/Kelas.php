@@ -13,6 +13,7 @@ class Kelas extends CI_Controller
         $this->load->model('Mst_jurusan', 'mst_jurusan');
         $this->load->model('Mst_kelas', 'mst_kelas');
         $this->load->model('Mst_guru', 'mst_guru');
+        $this->load->model('Tahun_akademik', 'akademik');
     }
 
     public function index()
@@ -23,6 +24,9 @@ class Kelas extends CI_Controller
 
         // Ambil data yang diperlukan
         $data['kelas']  = $this->mst_kelas->getAllData();
+
+        // untuk mengaktifkan tombol reset wali kelas
+        $data['akademik'] = $this->akademik->getTahunaktif();
 
         // View website
         $data['content']    = 'admin/kelas/index';
@@ -49,6 +53,9 @@ class Kelas extends CI_Controller
         $this->form_validation->set_rules('nama_kelas', 'Alias', 'required', [
             'required' => 'Nama kelas harus diisi'
         ]);
+        $this->form_validation->set_rules('tingkat', 'Alias', 'required', [
+            'required' => 'Tingkat kelas harus diisi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->tambah();
@@ -65,7 +72,8 @@ class Kelas extends CI_Controller
                 $data = [
                     'nama_kelas'    => $this->input->post('nama_kelas'),
                     'id_jurusan'    => $this->input->post('id_jurusan') ? $this->input->post('id_jurusan') : null,
-                    'id_guru'    => $this->input->post('id_guru') ? $this->input->post('id_guru') : null,
+                    'tingkat'       => $this->input->post('tingkat'),
+                    'id_guru'       => $this->input->post('id_guru') ? $this->input->post('id_guru') : null,
                 ];
 
                 $this->mst_kelas->create($data);
@@ -101,6 +109,9 @@ class Kelas extends CI_Controller
         $this->form_validation->set_rules('nama_kelas', 'Alias', 'required', [
             'required' => 'Nama kelas harus diisi'
         ]);
+        $this->form_validation->set_rules('tingkat', 'Alias', 'required', [
+            'required' => 'Tingkat kelas harus diisi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->edit();
@@ -109,7 +120,8 @@ class Kelas extends CI_Controller
             $data = [
                 'nama_kelas'    => $this->input->post('nama_kelas'),
                 'id_jurusan'    => $this->input->post('id_jurusan') ? $this->input->post('id_jurusan') : null,
-                'id_guru'    => $this->input->post('id_guru') ? $this->input->post('id_guru') : null,
+                'tingkat'       => $this->input->post('tingkat'),
+                'id_guru'       => $this->input->post('id_guru') ? $this->input->post('id_guru') : null,
             ];
 
             // Update data
@@ -125,6 +137,17 @@ class Kelas extends CI_Controller
         // Delete data
         $this->mst_kelas->delete(array('id_kelas' => $id));
         $this->session->set_flashdata('success', 'Delete kelas berhasil');
+        redirect('admin/kelas');
+    }
+
+    public function resetkelas()
+    {
+        $data = [
+            'id_guru' => null,
+        ];
+
+        $this->mst_kelas->kosongkanWaliKelas($data);
+        $this->session->set_flashdata('success', 'Reset wali kelas berhasil!');
         redirect('admin/kelas');
     }
 }

@@ -63,3 +63,18 @@ function level($level = 0)
     }
     return $level_arr;
 }
+
+// tingkat kelas
+function tingkat($par = 0)
+{
+    $par_arr = [
+        '1' => '1',
+        '2' => '2',
+        '3' => '3',
+    ];
+
+    if ($par !== 0) {
+        return $par_arr[$par];
+    }
+    return $par_arr;
+}

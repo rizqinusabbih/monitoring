@@ -25,6 +25,7 @@
                     </div>
                 <?php endif; ?>
             </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -61,6 +62,27 @@
                                             <td><?php echo $row['angkatan']; ?></td>
                                             <td>
                                                 <a href="<?php echo base_url('admin/siswa/edit/' . $row['id_siswa']); ?>" class="btn btn-sm btn-warning" data-placement="top" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <!-- Start query kelas -->
+                                                <?php
+                                                $tingkat = $row['tingkat'] + 1;
+                                                $kelas = $this->mst_kelas->getNaikTingkat($tingkat);
+                                                ?>
+                                                <!-- End query kelas -->
+                                                <?php if (!$akademik) : ?>
+                                                    <div class="btn-group">
+                                                        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button" aria-expanded="false">Naik Kelas <span class="caret"></span>
+                                                        </button>
+                                                        <ul role="menu" class="dropdown-menu">
+                                                            <?php if ($kelas) : ?>
+                                                                <?php foreach ($kelas as $item) : ?>
+                                                                    <li><a href="<?php echo base_url('admin/siswa/naiktingkat/' . $row['id_siswa'] . '/' . $item['id_kelas']); ?>"><?php echo $item['nama_kelas']; ?></a>
+                                                                    </li>
+                                                                    <li class="divider"></li>
+                                                                <?php endforeach; ?>
+                                                            <?php endif; ?>
+                                                        </ul>
+                                                    </div>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -72,6 +94,5 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- /page content -->

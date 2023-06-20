@@ -32,6 +32,11 @@ class Mst_kelas extends CI_Model
         return FALSE;
     }
 
+    function kosongkanWaliKelas($data)
+    {
+        $this->db->update($this->table, $data);
+    }
+
     function getAllData()
     {
         $this->db->select('*, a.id_kelas');
@@ -52,16 +57,6 @@ class Mst_kelas extends CI_Model
         $this->db->join('mst_guru', 'a.id_guru = mst_guru.id_guru', 'left');
         $this->db->where('a.id_kelas', $id);
         $query = $this->db->get($this->table . ' a', 1);
-
-        if ($query->num_rows() == 1) {
-            return $query->row_array();
-        }
-    }
-
-    function checkDuplicateData($where)
-    {
-        $this->db->where($where);
-        $query = $this->db->get($this->table, 1);
 
         if ($query->num_rows() == 1) {
             return $query->row_array();
@@ -91,6 +86,18 @@ class Mst_kelas extends CI_Model
 
         if ($query->num_rows() == 1) {
             return $query->row_array();
+        }
+    }
+
+    function getNaikTingkat($tingkat)
+    {
+        $this->db->select('*, a.id_kelas');
+        $this->db->where('a.tingkat', $tingkat);
+        $this->db->order_by('a.nama_kelas');
+        $query = $this->db->get($this->table . ' a');
+
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
         }
     }
 }

@@ -9,6 +9,9 @@
 
         <div class="clearfix"></div>
 
+        <?php if (!$akademik) : ?>
+            <a href="<?php echo base_url('admin/kelas/resetkelas'); ?>" class="btn btn-danger btn-sm pull-right" onclick="return confirm('Anda yakin ingin mereset wali kelas? Wali kelas akan kosong!');"><i class="fa fa-power-off"></i> Reset Wali Kelas</a>
+        <?php endif; ?>
         <a href="<?php echo base_url('admin/kelas/tambah'); ?>" class="btn bg-primary btn-sm pull-right"><i class="fa fa-plus"></i> Tambah Kelas Baru</a>
 
         <div class="row">

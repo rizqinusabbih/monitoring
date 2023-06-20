@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2022 at 04:55 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Jun 20, 2023 at 06:41 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,221 @@ CREATE TABLE `mon_pelanggaran` (
   `keterangan` text DEFAULT NULL,
   `tgl_pelanggaran` date NOT NULL,
   `id_guru` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mon_pelanggaran`
+--
+
+INSERT INTO `mon_pelanggaran` (`id_mon_pelanggaran`, `id_tahun_akademik`, `id_siswa`, `id_pelanggaran`, `jml_poin`, `keterangan`, `tgl_pelanggaran`, `id_guru`) VALUES
+(1, 1, 23, 37, 10, NULL, '2022-10-01', 2),
+(2, 1, 7, 35, 5, NULL, '2022-10-01', 2),
+(3, 1, 7, 42, 5, NULL, '2022-10-01', 2),
+(4, 1, 1, 35, 5, NULL, '2022-10-01', 2),
+(5, 1, 12, 35, 5, NULL, '2022-10-01', 2),
+(6, 1, 26, 35, 5, NULL, '2022-10-01', 2),
+(7, 1, 34, 35, 5, NULL, '2022-10-01', 2),
+(8, 1, 15, 42, 5, NULL, '2022-10-01', 2),
+(9, 1, 31, 42, 5, NULL, '2022-10-01', 2),
+(10, 1, 27, 35, 5, NULL, '2022-10-01', 2),
+(11, 1, 63, 42, 5, NULL, '2022-10-01', 3),
+(12, 1, 57, 42, 5, NULL, '2022-10-01', 3),
+(13, 1, 50, 42, 5, NULL, '2022-10-01', 3),
+(14, 1, 38, 42, 5, NULL, '2022-10-01', 3),
+(15, 1, 69, 42, 5, NULL, '2022-10-01', 3),
+(16, 1, 65, 42, 5, NULL, '2022-10-01', 3),
+(17, 1, 71, 42, 5, NULL, '2022-10-01', 3),
+(18, 1, 70, 42, 5, NULL, '2022-10-01', 3),
+(19, 1, 60, 42, 5, NULL, '2022-10-01', 3),
+(20, 1, 46, 42, 5, NULL, '2022-10-01', 3),
+(21, 1, 126, 42, 5, NULL, '2022-10-05', 5),
+(22, 1, 132, 42, 5, NULL, '2022-10-05', 5),
+(23, 1, 205, 35, 5, 'Tidur saat jam pelajaran', '2022-10-10', 7),
+(24, 1, 145, 42, 5, 'Memakai sandal saat jam pelajaran', '2022-10-11', 6),
+(25, 1, 144, 35, 5, 'Bermain gelembung', '2022-10-11', 6),
+(26, 1, 143, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(27, 1, 144, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(28, 1, 145, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(29, 1, 146, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(30, 1, 147, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(31, 1, 148, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(32, 1, 149, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(33, 1, 150, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(34, 1, 151, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(35, 1, 152, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(36, 1, 153, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(37, 1, 154, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(38, 1, 155, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(39, 1, 156, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(40, 1, 157, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(41, 1, 158, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(42, 1, 159, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(43, 1, 160, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(44, 1, 161, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(45, 1, 162, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(46, 1, 163, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(47, 1, 164, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(48, 1, 165, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(49, 1, 166, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(50, 1, 167, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(51, 1, 168, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(52, 1, 169, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(53, 1, 170, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(54, 1, 171, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(55, 1, 172, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(56, 1, 174, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(57, 1, 175, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(58, 1, 176, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(59, 1, 177, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(60, 1, 178, 35, 5, 'Tidak melengkapi catatan', '2022-10-11', 6),
+(61, 1, 120, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(62, 1, 112, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(63, 1, 137, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(64, 1, 119, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(65, 1, 113, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(66, 1, 116, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(67, 1, 115, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(68, 1, 110, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(69, 1, 111, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(70, 1, 131, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(71, 1, 128, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(72, 1, 125, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(73, 1, 123, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(74, 1, 139, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(75, 1, 129, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(76, 1, 126, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(77, 1, 117, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(78, 1, 134, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(79, 1, 108, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(80, 1, 136, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(81, 1, 142, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(82, 1, 141, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-12', 5),
+(83, 1, 79, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-13', 4),
+(84, 1, 80, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-13', 4),
+(85, 1, 90, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-13', 4),
+(86, 1, 74, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-13', 4),
+(87, 1, 105, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-13', 4),
+(88, 1, 72, 35, 5, 'Tidak mengerjakan tugas membuat tabel 1 html', '2022-10-13', 4),
+(89, 1, 76, 42, 5, 'Tidak memakai dasi saat jam pelajaran', '2022-10-13', 4),
+(90, 1, 161, 42, 5, 'Memakai sandal saat jam pelajaran', '2022-10-18', 6),
+(91, 1, 152, 35, 5, 'Main game saat jam pelajaran', '2022-10-18', 6),
+(92, 1, 178, 6, 5, 'Menyembunyikan handphone temannya', '2022-10-18', 6),
+(93, 1, 119, 35, 5, 'Bermain mobile legend saat jam pelajaran', '2022-10-19', 5),
+(94, 1, 141, 35, 5, NULL, '2022-10-19', 5),
+(95, 1, 112, 35, 5, NULL, '2022-10-19', 5),
+(96, 1, 137, 35, 5, NULL, '2022-10-19', 5),
+(97, 1, 136, 35, 5, NULL, '2022-10-19', 5),
+(98, 1, 124, 35, 5, NULL, '2022-10-19', 5),
+(99, 1, 19, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(100, 1, 35, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(101, 1, 31, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(102, 1, 24, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(103, 1, 32, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(104, 1, 7, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(105, 1, 21, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(106, 1, 9, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(107, 1, 6, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(108, 1, 15, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(109, 1, 11, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(110, 1, 29, 35, 0, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(111, 1, 16, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(112, 1, 22, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(113, 1, 28, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(114, 1, 18, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(115, 1, 27, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(116, 1, 2, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(117, 1, 23, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(118, 1, 12, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(119, 1, 34, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(120, 1, 26, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-22', 2),
+(121, 1, 26, 37, 10, NULL, '2022-10-22', 2),
+(122, 1, 29, 37, 10, NULL, '2022-10-29', 2),
+(123, 1, 19, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(124, 1, 35, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(125, 1, 31, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(126, 1, 24, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(127, 1, 32, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(128, 1, 7, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(129, 1, 21, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(130, 1, 9, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(131, 1, 6, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(132, 1, 15, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(133, 1, 28, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(134, 1, 18, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(135, 1, 25, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(136, 1, 1, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(137, 1, 27, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(138, 1, 2, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(139, 1, 17, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(140, 1, 12, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(141, 1, 34, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-29', 2),
+(142, 1, 67, 37, 10, NULL, '2022-10-29', 3),
+(143, 1, 78, 35, 5, 'Tidak mengerjakan tugas membuat formulir', '2022-10-27', 4),
+(144, 1, 80, 35, 5, 'Tidak mengerjakan tugas membuat formulir', '2022-10-27', 4),
+(145, 1, 98, 35, 5, 'Tidak mengerjakan tugas membuat formulir', '2022-10-27', 4),
+(146, 1, 102, 35, 5, 'Tidak mengerjakan tugas membuat formulir', '2022-10-27', 4),
+(147, 1, 154, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-25', 6),
+(148, 1, 170, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-25', 6),
+(149, 1, 194, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(150, 1, 197, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(151, 1, 201, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(152, 1, 211, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(153, 1, 205, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(154, 1, 202, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(155, 1, 190, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(156, 1, 189, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(157, 1, 193, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(158, 1, 180, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(159, 1, 184, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(160, 1, 204, 35, 5, 'Tidak mengerjakan tugas kelompok membuat daftar menu', '2022-10-24', 7),
+(161, 1, 214, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-31', 7),
+(162, 1, 210, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-31', 7),
+(163, 1, 184, 35, 5, 'Tidak mengerjakan tugas membuat tabel', '2022-10-31', 7),
+(164, 1, 94, 42, 5, 'Memakai sandal saat jam pelajaran', '2022-11-03', 4),
+(165, 1, 175, 37, 10, NULL, '2022-11-01', 6),
+(166, 1, 27, 42, 5, 'Tidak memakai sepatu saat jam pelajaran', '2023-01-14', 2),
+(167, 1, 56, 42, 5, 'Tidak memakai celana pramuka', '2023-01-14', 3),
+(168, 1, 59, 42, 5, 'Tidak memakai sepatu', '2023-01-14', 3),
+(169, 1, 69, 42, 5, 'Tidak memakai sepatu', '2023-01-14', 3),
+(170, 1, 44, 42, 5, 'Tidak memakai sepatu', '2023-01-14', 3),
+(171, 1, 57, 39, 5, NULL, '2023-01-14', 3),
+(172, 1, 179, 5, 5, 'Melanggar kontrak belajar', '2023-01-16', 7),
+(173, 1, 215, 42, 5, 'Tidak memakai sepatu', '2023-01-16', 7),
+(174, 1, 201, 42, 5, 'Tidak memakai sepatu', '2023-01-16', 7),
+(175, 1, 184, 5, 5, 'Melanggar kontrak belajar', '2023-01-16', 7),
+(176, 1, 210, 5, 5, 'Melanggar kontrak belajar', '2023-01-16', 7),
+(177, 1, 145, 42, 5, 'Tidak memakai sepatu', '2023-01-17', 6),
+(178, 1, 144, 42, 5, 'Tidak memakai dasi', '2023-01-17', 6),
+(179, 1, 153, 42, 5, 'Tidak memakai dasi', '2023-01-17', 6),
+(180, 1, 164, 42, 5, 'Tidak memakai sepatu', '2023-01-17', 6),
+(181, 1, 174, 2, 5, NULL, '2023-01-17', 6),
+(182, 1, 167, 2, 5, NULL, '2023-01-17', 6),
+(183, 1, 120, 35, 5, 'Tugas mencatata perintah di ms.word', '2023-01-18', 5),
+(184, 1, 142, 35, 5, 'Tugas mencatata perintah di ms.word', '2023-01-18', 5),
+(185, 1, 108, 35, 5, 'Tugas mencatata perintah di ms.word', '2023-01-18', 5),
+(186, 1, 119, 35, 5, 'Tugas mencatat perintah di ms.word', '2023-01-18', 5),
+(187, 1, 136, 35, 5, 'Tugas mencatat perintah di ms.word', '2023-01-18', 5),
+(188, 1, 114, 35, 5, 'Tugas mencatat perintah di ms.word', '2023-01-18', 5),
+(189, 1, 123, 35, 5, 'Tugas mencatat perintah di ms.word', '2023-01-18', 5),
+(190, 1, 141, 35, 5, 'Tugas mencatat perintah di ms.word', '2023-01-18', 5),
+(191, 1, 112, 35, 5, 'Tugas mencatat perintah di ms.word', '2023-01-18', 5),
+(192, 1, 144, 42, 5, 'Tidak memakai dasi', '2023-01-24', 6),
+(193, 1, 148, 42, 5, 'Tidak memakai dasi', '2023-01-24', 6),
+(194, 1, 173, 42, 5, 'Tidak memakai dasi', '2023-01-24', 6),
+(195, 1, 153, 42, 5, 'Tidak memakai dasi', '2023-01-24', 6),
+(196, 1, 90, 42, 5, 'Tidak memakai sepatu', '2023-01-26', 4),
+(197, 1, 95, 42, 5, 'Tidak memakai sepatu', '2023-01-26', 4),
+(198, 1, 66, 42, 5, 'Tidak memakai sepatu', '2023-01-28', 3),
+(199, 1, 60, 42, 5, 'Tidak memakai sepatu', '2023-01-28', 3),
+(200, 1, 64, 42, 5, 'Tidak memakai sepatu', '2023-01-28', 3),
+(201, 1, 69, 42, 5, 'Tidak memakai sepatu', '2023-01-28', 3),
+(202, 1, 44, 42, 5, 'Tidak memakai sepatu', '2023-01-28', 3),
+(203, 1, 70, 42, 5, 'Tidak memakai sepatu', '2023-01-28', 3),
+(204, 1, 179, 42, 5, 'Tidak memakai dasi', '2023-02-13', 7),
+(205, 1, 211, 37, 10, NULL, '2023-02-20', 7),
+(206, 1, 183, 37, 10, NULL, '2023-02-20', 7),
+(207, 1, 24, 37, 10, NULL, '2023-05-06', 2),
+(208, 1, 31, 37, 10, NULL, '2023-05-06', 2);
 
 -- --------------------------------------------------------
 
@@ -53,7 +267,19 @@ CREATE TABLE `mon_prestasi` (
   `keterangan` text DEFAULT NULL,
   `tgl_prestasi` date NOT NULL,
   `id_guru` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mon_prestasi`
+--
+
+INSERT INTO `mon_prestasi` (`id_mon_prestasi`, `id_tahun_akademik`, `id_siswa`, `id_prestasi`, `jml_point`, `keterangan`, `tgl_prestasi`, `id_guru`) VALUES
+(1, 1, 17, 8, 5, 'Ketua kelas', '2022-11-24', 2),
+(2, 1, 36, 8, 5, 'Ketua kelas', '2022-11-24', 3),
+(3, 1, 94, 8, 5, 'Ketua kelas', '2022-11-24', 4),
+(4, 1, 141, 8, 5, 'Ketua kelas', '2022-11-24', 5),
+(5, 1, 143, 8, 5, 'Ketua kelas', '2022-11-24', 6),
+(6, 1, 195, 8, 5, 'Ketua kelas', '2022-11-24', 7);
 
 -- --------------------------------------------------------
 
@@ -65,7 +291,7 @@ CREATE TABLE `mst_guru` (
   `id_guru` int(11) NOT NULL,
   `nama_guru` varchar(128) NOT NULL,
   `nip` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mst_guru`
@@ -89,7 +315,7 @@ INSERT INTO `mst_guru` (`id_guru`, `nama_guru`, `nip`) VALUES
 CREATE TABLE `mst_jurusan` (
   `id_jurusan` int(11) NOT NULL,
   `nama_jurusan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -101,20 +327,36 @@ CREATE TABLE `mst_kelas` (
   `id_kelas` int(11) NOT NULL,
   `nama_kelas` varchar(30) NOT NULL,
   `id_jurusan` int(11) DEFAULT NULL,
+  `tingkat` int(11) DEFAULT NULL,
   `id_guru` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mst_kelas`
 --
 
-INSERT INTO `mst_kelas` (`id_kelas`, `nama_kelas`, `id_jurusan`, `id_guru`) VALUES
-(1, 'X MIA 1', NULL, 2),
-(2, 'X MIA 2', NULL, 3),
-(3, 'X MIA 3', NULL, 4),
-(4, 'X MIA 4', NULL, 5),
-(5, 'X MIA 5', NULL, 6),
-(6, 'X MIA 6', NULL, 7);
+INSERT INTO `mst_kelas` (`id_kelas`, `nama_kelas`, `id_jurusan`, `tingkat`, `id_guru`) VALUES
+(1, 'X MIA 1', NULL, 1, NULL),
+(2, 'X MIA 2', NULL, 1, NULL),
+(3, 'X MIA 3', NULL, 1, NULL),
+(4, 'X MIA 4', NULL, 1, NULL),
+(5, 'X MIA 5', NULL, 1, NULL),
+(6, 'X MIA 6', NULL, 1, NULL),
+(7, 'X MIA 7', NULL, 1, NULL),
+(8, 'X Keagamaan', NULL, 1, NULL),
+(9, 'XI IIS 1', NULL, 2, NULL),
+(10, 'XI IIS 2', NULL, 2, NULL),
+(11, 'XI IIS 3', NULL, 2, NULL),
+(12, 'XI IIS 4', NULL, 2, NULL),
+(13, 'XI Keagamaan', NULL, 2, NULL),
+(14, 'XI MIA 1', NULL, 2, NULL),
+(15, 'XI MIA 2', NULL, 2, NULL),
+(16, 'XI MIA 3', NULL, 2, NULL),
+(17, 'XI MIA 4', NULL, 2, NULL),
+(18, 'XI MIA 5', NULL, 2, NULL),
+(19, 'XI MIA 6', NULL, 2, NULL),
+(20, 'XI MIA 7', NULL, 2, NULL),
+(21, 'XII Keagamaan', NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -125,7 +367,7 @@ INSERT INTO `mst_kelas` (`id_kelas`, `nama_kelas`, `id_jurusan`, `id_guru`) VALU
 CREATE TABLE `mst_menu` (
   `id_menu` int(11) NOT NULL,
   `menu` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mst_menu`
@@ -160,7 +402,7 @@ CREATE TABLE `mst_pelanggaran` (
   `kode_pelanggaran` varchar(10) NOT NULL,
   `jenis_pelanggaran` varchar(128) NOT NULL,
   `poin` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mst_pelanggaran`
@@ -225,7 +467,7 @@ CREATE TABLE `mst_prestasi` (
   `id_prestasi` int(11) NOT NULL,
   `jenis_prestasi` varchar(128) NOT NULL,
   `point` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mst_prestasi`
@@ -259,7 +501,7 @@ CREATE TABLE `mst_siswa` (
   `tahun_lulus_keluar` varchar(20) DEFAULT NULL,
   `nama_ibu` varchar(128) DEFAULT NULL,
   `keterangan_keluar` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mst_siswa`
@@ -280,7 +522,7 @@ INSERT INTO `mst_siswa` (`id_siswa`, `id_tahun_akademik`, `nis`, `nama_siswa`, `
 (12, 1, '112', 'Faiz Fikri Yasir', 1, 'aktif', NULL, NULL, NULL),
 (13, 1, '113', 'Hazlin Asmirandah Sormin', 1, 'aktif', NULL, NULL, NULL),
 (14, 1, '114', 'Hilyatul Auliya Afriyani Ritonga', 1, 'aktif', NULL, NULL, NULL),
-(15, 1, '115', 'Inayah Batubara', 1, 'aktif', NULL, NULL, NULL),
+(15, 1, '115', 'Fitriah Rahmadani', 1, 'aktif', NULL, NULL, NULL),
 (16, 1, '116', 'Irwina Tri Aulia Pulungan', 1, 'aktif', NULL, NULL, NULL),
 (17, 1, '117', 'Kaprian Anugrah Ridwan', 1, 'aktif', NULL, NULL, NULL),
 (18, 1, '118', 'Karlin Ardiana', 1, 'aktif', NULL, NULL, NULL),
@@ -322,7 +564,7 @@ INSERT INTO `mst_siswa` (`id_siswa`, `id_tahun_akademik`, `nis`, `nama_siswa`, `
 (54, 1, '219', 'Nur Salsabila Siregar', 2, 'aktif', NULL, NULL, NULL),
 (55, 1, '220', 'Nurul Anadia Fahmawati', 2, 'aktif', NULL, NULL, NULL),
 (56, 1, '221', 'Rafli Ahdan Nasir', 2, 'aktif', NULL, NULL, NULL),
-(57, 1, '222', 'Raihon Partomuan Sihombing', 2, 'aktif', NULL, NULL, NULL),
+(57, 1, '222', 'Raihan Partomuan Sihombing', 2, 'aktif', NULL, NULL, NULL),
 (58, 1, '223', 'Raisyah Ahmaini', 2, 'aktif', NULL, NULL, NULL),
 (59, 1, '224', 'Riski Dzahirah Pane', 2, 'aktif', NULL, NULL, NULL),
 (60, 1, '225', 'Rizky Asshifa Siregar', 2, 'aktif', NULL, NULL, NULL),
@@ -459,7 +701,7 @@ INSERT INTO `mst_siswa` (`id_siswa`, `id_tahun_akademik`, `nis`, `nama_siswa`, `
 (191, 1, '613', 'Darliana Yulianti', 6, 'aktif', NULL, NULL, NULL),
 (192, 1, '614', 'Putri Ani Harahap', 6, 'aktif', NULL, NULL, NULL),
 (193, 1, '615', 'Nur Fitri Khasanah Harahap', 6, 'aktif', NULL, NULL, NULL),
-(194, 1, '616', 'Diandraa Mahalia Rizki', 6, 'aktif', NULL, NULL, NULL),
+(194, 1, '616', 'Diandra Mahalia Rizki', 6, 'aktif', NULL, NULL, NULL),
 (195, 1, '617', 'Muhammad Zaky Ardiansyah', 6, 'aktif', NULL, NULL, NULL),
 (196, 1, '618', 'Mutia Zahra', 6, 'aktif', NULL, NULL, NULL),
 (197, 1, '619', 'Qamarito Ramadhani', 6, 'aktif', NULL, NULL, NULL),
@@ -469,13 +711,20 @@ INSERT INTO `mst_siswa` (`id_siswa`, `id_tahun_akademik`, `nis`, `nama_siswa`, `
 (201, 1, '623', 'Kholida Hannum Siagian', 6, 'aktif', NULL, NULL, NULL),
 (202, 1, '624', 'Tazkiya Mukarromah', 6, 'aktif', NULL, NULL, NULL),
 (203, 1, '625', 'Aisah Harahap', 6, 'aktif', NULL, NULL, NULL),
-(204, 1, '626', 'Faizun Fakih Ritonga', 6, 'aktif', NULL, NULL, NULL),
+(204, 1, '626', 'Faizun Fakih Ritonga', NULL, 'pindah', '2023', NULL, 'Pindah ke SMA Negeri 1 Padangsidimpuan'),
 (205, 1, '627', 'Fitri Mahrani Siagian', 6, 'aktif', NULL, NULL, NULL),
 (206, 1, '628', 'Nanda Tsaqraprana Harahap', 6, 'aktif', NULL, NULL, NULL),
 (207, 1, '629', 'Aldy Arrezou Qordowi', 6, 'aktif', NULL, NULL, NULL),
 (208, 1, '630', 'Salwa Ilya Siregar', 6, 'aktif', NULL, NULL, NULL),
 (209, 1, '631', 'Thoriq Haikal Harahap', 6, 'aktif', NULL, NULL, NULL),
-(210, 1, '632', 'Fitrah Hamonangan Hasibuan', 6, 'aktif', NULL, NULL, NULL);
+(210, 1, '632', 'Fitrah Hamonangan Hasibuan', 6, 'aktif', NULL, NULL, NULL),
+(211, 1, '633', 'Rohi Nurlatifa', 6, 'aktif', NULL, NULL, NULL),
+(212, 1, '634', 'Taufik Halomoan', NULL, 'dikeluarkan', '2022', NULL, 'Akhlak dan absensi '),
+(213, 1, '635', 'Nazmi Latifa Harahap', 6, 'aktif', NULL, NULL, NULL),
+(214, 1, '636', 'Ria Elvina Pandiangan', 6, 'aktif', NULL, NULL, NULL),
+(215, 1, '637', 'Van Hendi Pramana', 6, 'aktif', NULL, NULL, NULL),
+(216, 1, '237', 'Aulia Salamah Siregar', 2, 'aktif', NULL, NULL, NULL),
+(217, 1, '638', 'Risa Yannisah Nur', 6, 'aktif', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -488,14 +737,15 @@ CREATE TABLE `tahun_akademik` (
   `tahun_akademik` varchar(20) NOT NULL,
   `angkatan` varchar(20) NOT NULL,
   `is_aktif` enum('aktif','nonaktif') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tahun_akademik`
 --
 
 INSERT INTO `tahun_akademik` (`id_tahun_akademik`, `tahun_akademik`, `angkatan`, `is_aktif`) VALUES
-(1, '2022/2023', '2022', 'aktif');
+(1, '2022/2023', '2022', 'aktif'),
+(2, '2023/2024', '2023', 'nonaktif');
 
 -- --------------------------------------------------------
 
@@ -509,7 +759,7 @@ CREATE TABLE `user` (
   `username` varchar(50) NOT NULL,
   `password` varchar(128) NOT NULL,
   `level` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -535,7 +785,7 @@ CREATE TABLE `user_access` (
   `id` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_access`
@@ -551,19 +801,19 @@ INSERT INTO `user_access` (`id`, `level`, `id_menu`) VALUES
 (7, 0, 7),
 (8, 0, 8),
 (9, 0, 9),
-(10, 0, 10),
-(11, 0, 11),
+(10, 0, 101),
+(11, 0, 111),
 (12, 2, 10),
 (13, 2, 11),
-(14, 0, 12),
+(14, 0, 121),
 (15, 2, 12),
-(16, 0, 13),
-(17, 0, 14),
+(16, 0, 131),
+(17, 0, 141),
 (18, 1, 2),
 (19, 1, 13),
 (20, 1, 14),
-(21, 0, 15),
-(22, 0, 16),
+(21, 0, 151),
+(22, 0, 161),
 (23, 1, 15),
 (24, 1, 16);
 
@@ -651,13 +901,13 @@ ALTER TABLE `user_access`
 -- AUTO_INCREMENT for table `mon_pelanggaran`
 --
 ALTER TABLE `mon_pelanggaran`
-  MODIFY `id_mon_pelanggaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mon_pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT for table `mon_prestasi`
 --
 ALTER TABLE `mon_prestasi`
-  MODIFY `id_mon_prestasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mon_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `mst_guru`
@@ -675,7 +925,7 @@ ALTER TABLE `mst_jurusan`
 -- AUTO_INCREMENT for table `mst_kelas`
 --
 ALTER TABLE `mst_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `mst_menu`
@@ -699,13 +949,13 @@ ALTER TABLE `mst_prestasi`
 -- AUTO_INCREMENT for table `mst_siswa`
 --
 ALTER TABLE `mst_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- AUTO_INCREMENT for table `tahun_akademik`
 --
 ALTER TABLE `tahun_akademik`
-  MODIFY `id_tahun_akademik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_tahun_akademik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

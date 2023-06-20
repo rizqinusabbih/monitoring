@@ -51,6 +51,16 @@
                                     <small class="form-text text-danger"><?php echo form_error('id_jurusan'); ?></small>
                                 </div> -->
                                 <div class="form-group col-md-12">
+                                    <label for="tingkat">Tingkat *:</label>
+                                    <p>
+                                        <?php foreach (tingkat() as $item) : ?>
+                                            <?php echo $item; ?>:
+                                            <input type="radio" class="flat" name="tingkat" id="tingkat" value="<?php echo $item; ?>" <?php echo $kelas['tingkat'] == $item ? 'checked' : ''; ?> />
+                                        <?php endforeach; ?>
+                                    </p>
+                                    <small class="form-text text-danger"><?php echo form_error('tingkat'); ?></small>
+                                </div>
+                                <div class="form-group col-md-12">
                                     <label for="id_guru">Wali Kelas * :</label>
                                     <select name="id_guru" id="id_guru" class="form-control">
                                         <option value="">- Pilih Wali Kelas -</option>

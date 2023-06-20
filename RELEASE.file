@@ -14,3 +14,14 @@ Start Develop: 20 Juni 2022
     #0004: Fitur pindah keluar
     #0005: Modul Laporan
     #0006: Dashboard and versi 1.0.0 done
+
+1.0.1 Build
+-----------
+    #0007: Update proses crud data kelas
+    #0008: Penambahan tingkat kelas di monitoring_helper
+    #0009: Menambah fitur naik tingkat di halaman admin
+    #0010: Menambah fitur reset wali kelas di halaman admin
+
+Database Update
+-----------
+    #0001: Penambahan kolom tingkat pada tabel mst_kelas
